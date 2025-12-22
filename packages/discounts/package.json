@@ -1,82 +1,82 @@
 {
-    "name": "@commerce-atoms/discounts",
-    "version": "0.0.1",
-    "description": "Pure promotion logic engine for Shopify storefronts",
-    "type": "module",
-    "sideEffects": false,
-    "files": [
-        "dist",
-        "README.md",
-        "LICENSE"
-    ],
-    "keywords": [
-        "shopify",
-        "hydrogen",
-        "discounts",
-        "promotions",
-        "ecommerce",
-        "utilities"
-    ],
-    "author": "Commerce Atoms",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/commerce-atoms/shoppy",
-        "directory": "packages/discounts"
+  "name": "@commerce-atoms/discounts",
+  "version": "0.0.1",
+  "description": "Pure promotion logic engine for Shopify storefronts",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "discounts",
+    "promotions",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/discounts"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/discounts",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./apply/applyPercentageDiscount": {
+      "types": "./dist/apply/applyPercentageDiscount.d.ts",
+      "import": "./dist/apply/applyPercentageDiscount.js"
     },
-    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/discounts",
-    "bugs": {
-        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    "./apply/applyFixedDiscount": {
+      "types": "./dist/apply/applyFixedDiscount.d.ts",
+      "import": "./dist/apply/applyFixedDiscount.js"
     },
-    "publishConfig": {
-        "access": "public",
-        "provenance": true
+    "./apply/calculateDiscountedAmount": {
+      "types": "./dist/apply/calculateDiscountedAmount.d.ts",
+      "import": "./dist/apply/calculateDiscountedAmount.js"
     },
-    "exports": {
-        "./package.json": "./package.json",
-        "./apply/applyPercentageDiscount": {
-            "types": "./dist/apply/applyPercentageDiscount.d.ts",
-            "import": "./dist/apply/applyPercentageDiscount.js"
-        },
-        "./apply/applyFixedDiscount": {
-            "types": "./dist/apply/applyFixedDiscount.d.ts",
-            "import": "./dist/apply/applyFixedDiscount.js"
-        },
-        "./apply/calculateDiscountedAmount": {
-            "types": "./dist/apply/calculateDiscountedAmount.d.ts",
-            "import": "./dist/apply/calculateDiscountedAmount.js"
-        },
-        "./compose/composeDiscounts": {
-            "types": "./dist/compose/composeDiscounts.d.ts",
-            "import": "./dist/compose/composeDiscounts.js"
-        },
-        "./validate/validateDiscountRule": {
-            "types": "./dist/validate/validateDiscountRule.d.ts",
-            "import": "./dist/validate/validateDiscountRule.js"
-        },
-        "./types/composeOptions": {
-            "types": "./dist/types/composeOptions.d.ts",
-            "import": "./dist/types/composeOptions.js"
-        },
-        "./types/discount": {
-            "types": "./dist/types/discount.d.ts",
-            "import": "./dist/types/discount.js"
-        },
-        "./types/discountRule": {
-            "types": "./dist/types/discountRule.d.ts",
-            "import": "./dist/types/discountRule.js"
-        }
+    "./compose/composeDiscounts": {
+      "types": "./dist/compose/composeDiscounts.d.ts",
+      "import": "./dist/compose/composeDiscounts.js"
     },
-    "dependencies": {},
-    "engines": {
-        "node": ">=18.0.0"
+    "./validate/validateDiscountRule": {
+      "types": "./dist/validate/validateDiscountRule.d.ts",
+      "import": "./dist/validate/validateDiscountRule.js"
     },
-    "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
-        "typecheck": "tsc --noEmit",
-        "test": "vitest run",
-        "pack:check": "npm pack --dry-run --silent",
-        "prepublishOnly": "npm run build"
+    "./types/composeOptions": {
+      "types": "./dist/types/composeOptions.d.ts",
+      "import": "./dist/types/composeOptions.js"
+    },
+    "./types/discount": {
+      "types": "./dist/types/discount.d.ts",
+      "import": "./dist/types/discount.js"
+    },
+    "./types/discountRule": {
+      "types": "./dist/types/discountRule.d.ts",
+      "import": "./dist/types/discountRule.js"
     }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
 }

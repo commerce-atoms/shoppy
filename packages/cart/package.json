@@ -1,90 +1,90 @@
 {
-    "name": "@commerce-atoms/cart",
-    "version": "0.0.1",
-    "description": "Pure cart line math engine for Shopify products",
-    "type": "module",
-    "sideEffects": false,
-    "files": [
-        "dist",
-        "README.md",
-        "LICENSE"
-    ],
-    "keywords": [
-        "shopify",
-        "hydrogen",
-        "cart",
-        "ecommerce",
-        "utilities",
-        "line-items"
-    ],
-    "author": "Commerce Atoms",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/commerce-atoms/shoppy",
-        "directory": "packages/cart"
+  "name": "@commerce-atoms/cart",
+  "version": "0.0.1",
+  "description": "Pure cart line math engine for Shopify products",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "cart",
+    "ecommerce",
+    "utilities",
+    "line-items"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/cart"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/cart",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./totals/calculateSubtotal": {
+      "types": "./dist/totals/calculateSubtotal.d.ts",
+      "import": "./dist/totals/calculateSubtotal.js"
     },
-    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/cart",
-    "bugs": {
-        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    "./totals/calculateTotalQuantity": {
+      "types": "./dist/totals/calculateTotalQuantity.d.ts",
+      "import": "./dist/totals/calculateTotalQuantity.js"
     },
-    "publishConfig": {
-        "access": "public",
-        "provenance": true
+    "./line/addCartLine": {
+      "types": "./dist/line/addCartLine.d.ts",
+      "import": "./dist/line/addCartLine.js"
     },
-    "exports": {
-        "./package.json": "./package.json",
-        "./totals/calculateSubtotal": {
-            "types": "./dist/totals/calculateSubtotal.d.ts",
-            "import": "./dist/totals/calculateSubtotal.js"
-        },
-        "./totals/calculateTotalQuantity": {
-            "types": "./dist/totals/calculateTotalQuantity.d.ts",
-            "import": "./dist/totals/calculateTotalQuantity.js"
-        },
-        "./line/addCartLine": {
-            "types": "./dist/line/addCartLine.d.ts",
-            "import": "./dist/line/addCartLine.js"
-        },
-        "./line/updateCartLine": {
-            "types": "./dist/line/updateCartLine.d.ts",
-            "import": "./dist/line/updateCartLine.js"
-        },
-        "./line/removeCartLine": {
-            "types": "./dist/line/removeCartLine.d.ts",
-            "import": "./dist/line/removeCartLine.js"
-        },
-        "./line/mergeCartLines": {
-            "types": "./dist/line/mergeCartLines.d.ts",
-            "import": "./dist/line/mergeCartLines.js"
-        },
-        "./line/getCartLineKey": {
-            "types": "./dist/line/getCartLineKey.d.ts",
-            "import": "./dist/line/getCartLineKey.js"
-        },
-        "./normalize/normalizeCart": {
-            "types": "./dist/normalize/normalizeCart.d.ts",
-            "import": "./dist/normalize/normalizeCart.js"
-        },
-        "./types/cartLine": {
-            "types": "./dist/types/cartLine.d.ts",
-            "import": "./dist/types/cartLine.js"
-        },
-        "./types/cart": {
-            "types": "./dist/types/cart.d.ts",
-            "import": "./dist/types/cart.js"
-        }
+    "./line/updateCartLine": {
+      "types": "./dist/line/updateCartLine.d.ts",
+      "import": "./dist/line/updateCartLine.js"
     },
-    "dependencies": {},
-    "engines": {
-        "node": ">=18.0.0"
+    "./line/removeCartLine": {
+      "types": "./dist/line/removeCartLine.d.ts",
+      "import": "./dist/line/removeCartLine.js"
     },
-    "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
-        "typecheck": "tsc --noEmit",
-        "test": "vitest run",
-        "pack:check": "npm pack --dry-run --silent",
-        "prepublishOnly": "npm run build"
+    "./line/mergeCartLines": {
+      "types": "./dist/line/mergeCartLines.d.ts",
+      "import": "./dist/line/mergeCartLines.js"
+    },
+    "./line/getCartLineKey": {
+      "types": "./dist/line/getCartLineKey.d.ts",
+      "import": "./dist/line/getCartLineKey.js"
+    },
+    "./normalize/normalizeCart": {
+      "types": "./dist/normalize/normalizeCart.d.ts",
+      "import": "./dist/normalize/normalizeCart.js"
+    },
+    "./types/cartLine": {
+      "types": "./dist/types/cartLine.d.ts",
+      "import": "./dist/types/cartLine.js"
+    },
+    "./types/cart": {
+      "types": "./dist/types/cart.d.ts",
+      "import": "./dist/types/cart.js"
     }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
 }

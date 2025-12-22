@@ -81,4 +81,3 @@
     "prepublishOnly": "npm run build"
   }
 }
-
