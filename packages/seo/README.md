@@ -1,4 +1,4 @@
-# @shoppy/seo
+# @commerce-atoms/seo
 
 **Pure SEO meta and JSON-LD builder.**
 
@@ -20,7 +20,7 @@ This package explicitly does **NOT**:
 ### buildPageMeta
 
 ```typescript
-import {buildPageMeta} from '@shoppy/seo/meta/buildPageMeta';
+import {buildPageMeta} from '@commerce-atoms/seo/meta/buildPageMeta';
 
 const meta = buildPageMeta({
   title: 'About Us',
@@ -33,7 +33,7 @@ const meta = buildPageMeta({
 ### buildProductMeta
 
 ```typescript
-import {buildProductMeta} from '@shoppy/seo/meta/buildProductMeta';
+import {buildProductMeta} from '@commerce-atoms/seo/meta/buildProductMeta';
 
 const meta = buildProductMeta(product, {
   canonicalUrl: 'https://example.com/products/shoe',
@@ -48,7 +48,7 @@ const meta = buildProductMeta(product, {
 ### buildCollectionMeta
 
 ```typescript
-import {buildCollectionMeta} from '@shoppy/seo/meta/buildCollectionMeta';
+import {buildCollectionMeta} from '@commerce-atoms/seo/meta/buildCollectionMeta';
 
 const meta = buildCollectionMeta(collection, {
   canonicalUrl: 'https://example.com/collections/shoes',

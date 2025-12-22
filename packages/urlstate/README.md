@@ -1,4 +1,4 @@
-# @shoppy/urlstate
+# @commerce-atoms/urlstate
 
 **Pure URL state management for filters, sort, and pagination.**
 
@@ -26,7 +26,7 @@ This package explicitly does **NOT**:
 ### Schema Definition
 
 ```typescript
-import {defineSearchSchema} from '@shoppy/urlstate/defineSearchSchema';
+import {defineSearchSchema} from '@commerce-atoms/urlstate/defineSearchSchema';
 
 // Type-level schema (identity function for type inference only, no runtime validation)
 const schema = defineSearchSchema({
@@ -50,8 +50,8 @@ const schema = defineSearchSchema({
 ### Parsing & Serializing
 
 ```typescript
-import {parseSearchState} from '@shoppy/urlstate/parseSearchState';
-import {serializeSearchState} from '@shoppy/urlstate/serializeSearchState';
+import {parseSearchState} from '@commerce-atoms/urlstate/parseSearchState';
+import {serializeSearchState} from '@commerce-atoms/urlstate/serializeSearchState';
 
 const state = parseSearchState(
   new URLSearchParams('?color=red&color=blue&size=large'),
@@ -68,10 +68,10 @@ const params = serializeSearchState(state, schema, {
 ### Filter Operations
 
 ```typescript
-import {toggleFilter} from '@shoppy/urlstate/filters/toggleFilter';
-import {setRangeFilter} from '@shoppy/urlstate/filters/setRangeFilter';
-import {clearFilter} from '@shoppy/urlstate/filters/clearFilter';
-import {clearAllFilters} from '@shoppy/urlstate/filters/clearAllFilters';
+import {toggleFilter} from '@commerce-atoms/urlstate/filters/toggleFilter';
+import {setRangeFilter} from '@commerce-atoms/urlstate/filters/setRangeFilter';
+import {clearFilter} from '@commerce-atoms/urlstate/filters/clearFilter';
+import {clearAllFilters} from '@commerce-atoms/urlstate/filters/clearAllFilters';
 
 const nextState = toggleFilter(state, 'color', 'green');
 const withRange = setRangeFilter(state, 'price', {min: 10, max: 100});
@@ -82,9 +82,9 @@ const reset = clearAllFilters(state);
 ### Sort & Pagination
 
 ```typescript
-import {setSort} from '@shoppy/urlstate/sort/setSort';
-import {setPage} from '@shoppy/urlstate/pagination/setPage';
-import {setCursor} from '@shoppy/urlstate/pagination/setCursor';
+import {setSort} from '@commerce-atoms/urlstate/sort/setSort';
+import {setPage} from '@commerce-atoms/urlstate/pagination/setPage';
+import {setCursor} from '@commerce-atoms/urlstate/pagination/setCursor';
 
 const sorted = setSort(state, 'price-asc');
 const paged = setPage(state, 2);
@@ -94,7 +94,7 @@ const cursored = setCursor(state, 'eyJsYXN0X2lkIjoxMH0=');
 ### Patching URLs
 
 ```typescript
-import {patchSearchParams} from '@shoppy/urlstate/patchSearchParams';
+import {patchSearchParams} from '@commerce-atoms/urlstate/patchSearchParams';
 
 const patched = patchSearchParams(
   currentParams,

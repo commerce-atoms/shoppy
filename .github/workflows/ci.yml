@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     tags:
-      - "@shoppy/*@*"
+      - "@commerce-atoms/*@*"
   pull_request:
     branches: [main]
 
@@ -74,10 +74,10 @@ jobs:
 
           # Create test TypeScript file for type checking
           cat > test-imports.ts << 'EOF'
-          import {toggleFilter} from '@shoppy/urlstate/filters/toggleFilter';
-          import {findVariant} from '@shoppy/variants/findVariant';
-          import type {SearchState} from '@shoppy/urlstate/types/searchState';
-          import type {VariantLike} from '@shoppy/variants/types/variant';
+          import {toggleFilter} from '@commerce-atoms/urlstate/filters/toggleFilter';
+          import {findVariant} from '@commerce-atoms/variants/findVariant';
+          import type {SearchState} from '@commerce-atoms/urlstate/types/searchState';
+          import type {VariantLike} from '@commerce-atoms/variants/types/variant';
 
           // Type check only
           const state: SearchState = {filters: {}};
@@ -89,8 +89,8 @@ jobs:
 
           # Create runtime test file
           cat > test-runtime.mjs << 'EOF'
-          import {toggleFilter} from '@shoppy/urlstate/filters/toggleFilter';
-          import {findVariant} from '@shoppy/variants/findVariant';
+          import {toggleFilter} from '@commerce-atoms/urlstate/filters/toggleFilter';
+          import {findVariant} from '@commerce-atoms/variants/findVariant';
 
           // Runtime execution test
           const state = {filters: {}};
@@ -110,7 +110,7 @@ jobs:
     name: Publish to npm
     runs-on: ubuntu-latest
     needs: [test, consumer-smoke-test]
-    if: startsWith(github.ref, 'refs/tags/@shoppy/')
+    if: startsWith(github.ref, 'refs/tags/@commerce-atoms/')
     permissions:
       contents: read
       id-token: write
@@ -133,13 +133,13 @@ jobs:
       - name: Extract package from tag
         id: extract
         run: |
-          # Tag format: @shoppy/variants@1.0.0 -> package=variants, version=1.0.0
+          # Tag format: @commerce-atoms/variants@1.0.0 -> package=variants, version=1.0.0
           TAG="${GITHUB_REF#refs/tags/}"
-          PACKAGE=$(echo "$TAG" | sed 's/@shoppy\/\([^@]*\)@.*/\1/')
-          VERSION=$(echo "$TAG" | sed 's/@shoppy\/[^@]*@//')
+          PACKAGE=$(echo "$TAG" | sed 's/@commerce-atoms\/\([^@]*\)@.*/\1/')
+          VERSION=$(echo "$TAG" | sed 's/@commerce-atoms\/[^@]*@//')
           echo "package=$PACKAGE" >> $GITHUB_OUTPUT
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "📦 Publishing: @shoppy/$PACKAGE@$VERSION"
+          echo "📦 Publishing: @commerce-atoms/$PACKAGE@$VERSION"
 
       - name: Verify package version matches tag
         run: |
@@ -155,6 +155,6 @@ jobs:
       - name: Publish package
         run: |
           cd packages/${{ steps.extract.outputs.package }}
-          npm publish --provenance --access public
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

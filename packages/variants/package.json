@@ -1,5 +1,5 @@
 {
-  "name": "@shoppy/variants",
+  "name": "@commerce-atoms/variants",
   "version": "0.0.1",
   "description": "Pure variant selection logic for Shopify products",
   "type": "module",

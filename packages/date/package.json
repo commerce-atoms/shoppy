@@ -1,5 +1,5 @@
 {
-    "name": "@shoppy/date",
+    "name": "@commerce-atoms/date",
     "version": "0.0.1",
     "description": "Commerce-safe date helpers for Shopify storefronts",
     "type": "module",

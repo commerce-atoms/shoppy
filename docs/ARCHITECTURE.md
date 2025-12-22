@@ -47,7 +47,7 @@ Each package:
 ### 3. **Explicit Exports**
 
 - Each package uses subpath exports (no barrel imports)
-- Example: `import { toggleFilter } from '@shoppy/urlstate/filters/toggleFilter'`
+- Example: `import { toggleFilter } from '@commerce-atoms/urlstate/filters/toggleFilter'`
 - Forces tree-shaking and makes bundle analysis clear
 - **Import Philosophy:** Subpath exports are the public API. Breaking changes are documented in release notes.
 
@@ -55,11 +55,11 @@ Each package:
 
 ```typescript
 // ✅ Good: Explicit, tree-shakable
-import { findVariant } from "@shoppy/variants/findVariant";
-import { parseSearchState } from "@shoppy/urlstate/parseSearchState";
+import { findVariant } from "@commerce-atoms/variants/findVariant";
+import { parseSearchState } from "@commerce-atoms/urlstate/parseSearchState";
 
 // ❌ Bad: Barrel imports not supported
-import { findVariant } from "@shoppy/variants";
+import { findVariant } from "@commerce-atoms/variants";
 ```
 
 ### 4. **Shared Tooling**
@@ -99,8 +99,8 @@ Shoppy grows **only when** a utility:
 **Independent per package** – do not synchronize versions:
 
 ```
-@shoppy/urlstate:    1.2.3    (many updates)
-@shoppy/variants:    0.5.0    (fewer updates)
+@commerce-atoms/urlstate:    1.2.3    (many updates)
+@commerce-atoms/variants:    0.5.0    (fewer updates)
 ```
 
 Each `package.json` maintains its own `version` field.
@@ -112,21 +112,21 @@ Releases are **tag-driven** — CI publishes automatically.
 1. Make changes in `packages/<package>/{src,CHANGELOG.md}`
 2. Update `packages/<package>/package.json` version (semver)
 3. Commit and push to main
-4. Tag release: `git tag @shoppy/<package>@<version>`
+4. Tag release: `git tag @commerce-atoms/<package>@<version>`
 5. Push tag: `git push origin --tags`
-6. CI runs tests → publishes to npm with provenance
+6. CI runs tests → publishes to npm
 
 See [RELEASING.md](./RELEASING.md) for full details.
 
 ## Scaling: Adding New Packages
 
-Example: adding a new `@shoppy/inventory` package:
+Example: adding a new `@commerce-atoms/inventory` package:
 
 ```bash
 mkdir packages/inventory
 cat > packages/inventory/package.json << 'EOF'
 {
-  "name": "@shoppy/inventory",
+  "name": "@commerce-atoms/inventory",
   "version": "0.0.0",
   "description": "Inventory availability utilities",
   "type": "module",
@@ -217,10 +217,10 @@ npm run lint         # All packages
 
 ## Standalone Repository
 
-The `@shoppy` monorepo is designed as a standalone project:
+The `@commerce-atoms` monorepo is designed as a standalone project:
 
 1. All packages, documentation, and configs are self-contained
-2. CI/CD is configured for npm publishing with provenance
+2. CI/CD is configured for npm publishing
 3. Independent versioning per package
 
-The monorepo can be published directly to npm as `@shoppy/*` packages.
+The monorepo can be published directly to npm as `@commerce-atoms/*` packages.

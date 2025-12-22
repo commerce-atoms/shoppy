@@ -24,7 +24,7 @@ npm run verify
 2. Add `package.json`:
    ```json
    {
-     "name": "@shoppy/<package-name>",
+     "name": "@commerce-atoms/<package-name>",
      "version": "0.0.0",
      "description": "...",
      "type": "module",
@@ -68,8 +68,8 @@ We use **semantic versioning** (semver) and **independent versioning** per packa
 ### Versioning Rules
 
 - Each `package.json` maintains its own version number
-- If you only change `urlstate`, only increment `@shoppy/urlstate` version
-- If you change `variants`, only increment `@shoppy/variants` version
+- If you only change `urlstate`, only increment `@commerce-atoms/urlstate` version
+- If you change `variants`, only increment `@commerce-atoms/variants` version
 - Never synchronize versions across packages
 - Follow semver: `MAJOR.MINOR.PATCH`
   - **MAJOR**: Breaking changes

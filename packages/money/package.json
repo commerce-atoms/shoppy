@@ -1,5 +1,5 @@
 {
-  "name": "@shoppy/money",
+  "name": "@commerce-atoms/money",
   "version": "0.0.1",
   "description": "Pure money formatting and compare-at pricing",
   "type": "module",

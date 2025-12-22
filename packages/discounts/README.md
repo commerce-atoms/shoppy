@@ -1,4 +1,4 @@
-# @shoppy/discounts
+# @commerce-atoms/discounts
 
 **Pure promotion logic engine for Shopify storefronts.**
 
@@ -27,19 +27,19 @@ This package explicitly does **NOT**:
 
 ```typescript
 // Apply a percentage discount
-import { applyPercentageDiscount } from "@shoppy/discounts/apply/applyPercentageDiscount";
+import { applyPercentageDiscount } from "@commerce-atoms/discounts/apply/applyPercentageDiscount";
 
 const discountedAmount = applyPercentageDiscount(100, 20);
 // Returns: 80
 
 // Apply a fixed discount
-import { applyFixedDiscount } from "@shoppy/discounts/apply/applyFixedDiscount";
+import { applyFixedDiscount } from "@commerce-atoms/discounts/apply/applyFixedDiscount";
 
 const discountedAmount = applyFixedDiscount(100, 15);
 // Returns: 85
 
 // Validate discount rules
-import { validateDiscountRule } from "@shoppy/discounts/validate/validateDiscountRule";
+import { validateDiscountRule } from "@commerce-atoms/discounts/validate/validateDiscountRule";
 
 const isValid = validateDiscountRule(100, {
   minSpend: 50,
@@ -47,7 +47,7 @@ const isValid = validateDiscountRule(100, {
 });
 
 // Compose multiple discounts
-import { composeDiscounts } from "@shoppy/discounts/compose/composeDiscounts";
+import { composeDiscounts } from "@commerce-atoms/discounts/compose/composeDiscounts";
 
 const finalAmount = composeDiscounts(100, [
   { type: "percent", value: 10 },
@@ -58,6 +58,6 @@ const finalAmount = composeDiscounts(100, [
 ## Types
 
 ```typescript
-import type { Discount } from "@shoppy/discounts/types/discount";
-import type { DiscountRule } from "@shoppy/discounts/types/discountRule";
+import type { Discount } from "@commerce-atoms/discounts/types/discount";
+import type { DiscountRule } from "@commerce-atoms/discounts/types/discountRule";
 ```
