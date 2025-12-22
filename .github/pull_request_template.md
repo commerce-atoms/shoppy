@@ -12,8 +12,16 @@
 
 ## Package(s) Affected
 
-- [ ] `@shoppy/urlstate`
-- [ ] `@shoppy/variants`
+- [ ] `@commerce-atoms/cart`
+- [ ] `@commerce-atoms/date`
+- [ ] `@commerce-atoms/discounts`
+- [ ] `@commerce-atoms/filters`
+- [ ] `@commerce-atoms/metafield`
+- [ ] `@commerce-atoms/money`
+- [ ] `@commerce-atoms/pagination`
+- [ ] `@commerce-atoms/seo`
+- [ ] `@commerce-atoms/urlstate`
+- [ ] `@commerce-atoms/variants`
 - [ ] Root/workspace configuration
 
 ## Verification
@@ -28,6 +36,12 @@
 - [ ] README updated (if needed)
 - [ ] CHANGELOG.md updated (if needed)
 - [ ] Code comments added/updated (if needed)
+
+## Release checklist
+
+- [ ] If this PR changes public behavior or API, a Changeset was added (`npx changeset`)
+- [ ] No breaking changes without a major bump
+- [ ] README or docs updated if required
 
 ## Checklist
 

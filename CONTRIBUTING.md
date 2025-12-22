@@ -61,9 +61,22 @@ npm run verify
 5. Create `src/` directory with code
 6. Add `README.md`
 
-## Versioning
+## Versioning & releases
 
-We use **semantic versioning** (semver) and **independent versioning** per package.
+This repo uses **Changesets** for versioning and changelogs.
+
+For any user-facing change:
+
+```bash
+npx changeset
+```
+
+Commit the generated `.changeset/*.md` file with your PR.
+
+Do **not** run `npm version`.
+Do **not** create git tags manually.
+
+Releases are automated on merge to `main` via GitHub Actions and npm Trusted Publishing (OIDC).
 
 ### Versioning Rules
 
@@ -79,16 +92,6 @@ We use **semantic versioning** (semver) and **independent versioning** per packa
 **0.x Semver Policy:** During 0.x, breaking changes bump **minor** (0.MINOR.PATCH). After 1.0, breaking changes bump major.
 
 **Note:** For publishing process, see [docs/RELEASING.md](./docs/RELEASING.md).
-
-## Adding a Changeset
-
-After making changes to a package:
-
-```bash
-npx changeset
-```
-
-Select the changed packages, bump type, and write a summary. Commit the changeset file.
 
 ## Package Structure
 
