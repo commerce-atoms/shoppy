@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/pagination",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pure pagination math helpers for Shopify storefronts",
   "type": "module",
   "sideEffects": false,

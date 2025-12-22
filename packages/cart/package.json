@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/cart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pure cart line math engine for Shopify products",
   "type": "module",
   "sideEffects": false,
