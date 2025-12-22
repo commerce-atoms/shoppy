@@ -1,0 +1,51 @@
+{
+  "name": "shoppy",
+  "description": "Pure, composable commerce utilities",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/cart",
+    "packages/date",
+    "packages/discounts",
+    "packages/filters",
+    "packages/metafield",
+    "packages/money",
+    "packages/pagination",
+    "packages/seo",
+    "packages/urlstate",
+    "packages/variants"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "clean": "rm -rf packages/*/dist packages/*/node_modules",
+    "pack:check": "npm run pack:check --workspaces --if-present",
+    "verify": "npm run typecheck && npm run lint && npm run build && npm run test:run && npm run pack:check"
+  },
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^2.1.0"
+  }
+}

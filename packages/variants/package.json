@@ -1,0 +1,102 @@
+{
+  "name": "@shoppy/variants",
+  "version": "0.0.1",
+  "description": "Pure variant selection logic for Shopify products",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "variants",
+    "product",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/variants"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/variants",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./normalizeSelectedOptions": {
+      "types": "./dist/normalize/normalizeSelectedOptions.d.ts",
+      "import": "./dist/normalize/normalizeSelectedOptions.js"
+    },
+    "./findVariant": {
+      "types": "./dist/find/findVariant.d.ts",
+      "import": "./dist/find/findVariant.js"
+    },
+    "./pickDefaultVariant": {
+      "types": "./dist/defaults/pickDefaultVariant.d.ts",
+      "import": "./dist/defaults/pickDefaultVariant.js"
+    },
+    "./getAvailabilityMap": {
+      "types": "./dist/availability/getAvailabilityMap.d.ts",
+      "import": "./dist/availability/getAvailabilityMap.js"
+    },
+    "./isSelectionValid": {
+      "types": "./dist/availability/isSelectionValid.d.ts",
+      "import": "./dist/availability/isSelectionValid.js"
+    },
+    "./getSelectedOptionsFromUrl": {
+      "types": "./dist/url/getSelectedOptionsFromUrl.d.ts",
+      "import": "./dist/url/getSelectedOptionsFromUrl.js"
+    },
+    "./selectedOptionsToUrlParams": {
+      "types": "./dist/url/selectedOptionsToUrlParams.d.ts",
+      "import": "./dist/url/selectedOptionsToUrlParams.js"
+    },
+    "./types/variant": {
+      "types": "./dist/types/variant.d.ts",
+      "import": "./dist/types/variant.js"
+    },
+    "./types/selectedOption": {
+      "types": "./dist/types/selectedOption.d.ts",
+      "import": "./dist/types/selectedOption.js"
+    },
+    "./types/defaults": {
+      "types": "./dist/types/defaults.d.ts",
+      "import": "./dist/types/defaults.js"
+    },
+    "./types/normalize": {
+      "types": "./dist/types/normalize.d.ts",
+      "import": "./dist/types/normalize.js"
+    },
+    "./types/find": {
+      "types": "./dist/types/find.d.ts",
+      "import": "./dist/types/find.js"
+    },
+    "./types/availability": {
+      "types": "./dist/types/availability.d.ts",
+      "import": "./dist/types/availability.js"
+    }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
+}

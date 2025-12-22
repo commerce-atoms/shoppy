@@ -1,0 +1,67 @@
+{
+    "name": "@shoppy/date",
+    "version": "0.0.1",
+    "description": "Commerce-safe date helpers for Shopify storefronts",
+    "type": "module",
+    "sideEffects": false,
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "shopify",
+        "hydrogen",
+        "date",
+        "time",
+        "countdown",
+        "ecommerce",
+        "utilities"
+    ],
+    "author": "Commerce Atoms",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/commerce-atoms/shoppy",
+        "directory": "packages/date"
+    },
+    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/date",
+    "bugs": {
+        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        "./countdown/getCountdownString": {
+            "types": "./dist/countdown/getCountdownString.d.ts",
+            "import": "./dist/countdown/getCountdownString.js"
+        },
+        "./diff/getTimeUntil": {
+            "types": "./dist/diff/getTimeUntil.d.ts",
+            "import": "./dist/diff/getTimeUntil.js"
+        },
+        "./expire/isDateExpired": {
+            "types": "./dist/expire/isDateExpired.d.ts",
+            "import": "./dist/expire/isDateExpired.js"
+        },
+        "./types/timeDifference": {
+            "types": "./dist/types/timeDifference.d.ts",
+            "import": "./dist/types/timeDifference.js"
+        }
+    },
+    "dependencies": {},
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "pack:check": "npm pack --dry-run --silent",
+        "prepublishOnly": "npm run build"
+    }
+}

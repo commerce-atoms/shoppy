@@ -1,0 +1,74 @@
+{
+    "name": "@shoppy/pagination",
+    "version": "0.0.1",
+    "description": "Pure pagination math helpers for Shopify storefronts",
+    "type": "module",
+    "sideEffects": false,
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "shopify",
+        "hydrogen",
+        "pagination",
+        "ecommerce",
+        "utilities",
+        "offset"
+    ],
+    "author": "Commerce Atoms",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/commerce-atoms/shoppy",
+        "directory": "packages/pagination"
+    },
+    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/pagination",
+    "bugs": {
+        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        "./page/getPageBounds": {
+            "types": "./dist/page/getPageBounds.d.ts",
+            "import": "./dist/page/getPageBounds.js"
+        },
+        "./page/getPaginationMeta": {
+            "types": "./dist/page/getPaginationMeta.d.ts",
+            "import": "./dist/page/getPaginationMeta.js"
+        },
+        "./window/getOffsetWindow": {
+            "types": "./dist/window/getOffsetWindow.d.ts",
+            "import": "./dist/window/getOffsetWindow.js"
+        },
+        "./types/pageBounds": {
+            "types": "./dist/types/pageBounds.d.ts",
+            "import": "./dist/types/pageBounds.js"
+        },
+        "./types/paginationMeta": {
+            "types": "./dist/types/paginationMeta.d.ts",
+            "import": "./dist/types/paginationMeta.js"
+        },
+        "./types/offsetWindow": {
+            "types": "./dist/types/offsetWindow.d.ts",
+            "import": "./dist/types/offsetWindow.js"
+        }
+    },
+    "dependencies": {},
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "pack:check": "npm pack --dry-run --silent",
+        "prepublishOnly": "npm run build"
+    }
+}

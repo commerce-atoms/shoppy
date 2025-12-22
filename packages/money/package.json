@@ -1,0 +1,84 @@
+{
+  "name": "@shoppy/money",
+  "version": "0.0.1",
+  "description": "Pure money formatting and compare-at pricing",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "money",
+    "price",
+    "formatting",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/money"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/money",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./format/formatMoney": {
+      "types": "./dist/format/formatMoney.d.ts",
+      "import": "./dist/format/formatMoney.js"
+    },
+    "./format/formatRange": {
+      "types": "./dist/format/formatRange.d.ts",
+      "import": "./dist/format/formatRange.js"
+    },
+    "./compare/formatCompare": {
+      "types": "./dist/compare/formatCompare.d.ts",
+      "import": "./dist/compare/formatCompare.js"
+    },
+    "./compare/calculateDiscountPercent": {
+      "types": "./dist/compare/calculateDiscountPercent.d.ts",
+      "import": "./dist/compare/calculateDiscountPercent.js"
+    },
+    "./parse/parseAmount": {
+      "types": "./dist/parse/parseAmount.d.ts",
+      "import": "./dist/parse/parseAmount.js"
+    },
+    "./types/money": {
+      "types": "./dist/types/money.d.ts",
+      "import": "./dist/types/money.js"
+    },
+    "./types/options": {
+      "types": "./dist/types/options.d.ts",
+      "import": "./dist/types/options.js"
+    },
+    "./types/compare": {
+      "types": "./dist/types/compare.d.ts",
+      "import": "./dist/types/compare.js"
+    }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
+}
+

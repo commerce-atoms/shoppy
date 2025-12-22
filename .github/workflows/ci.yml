@@ -1,0 +1,160 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - "@shoppy/*@*"
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ["18", "20", "22"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify (typecheck + lint + test + build + pack)
+        run: npm run verify
+
+      - name: Verify no uncommitted build artifacts
+        run: |
+          git diff --exit-code || (echo "Error: Uncommitted changes detected after build. Ensure dist/ is in .gitignore and not committed." && exit 1)
+
+  consumer-smoke-test:
+    name: Consumer Smoke Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ["20", "22"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Pack packages
+        run: |
+          cd packages/urlstate && npm pack --silent && mv *.tgz ../../urlstate.tgz
+          cd ../variants && npm pack --silent && mv *.tgz ../../variants.tgz
+
+      - name: Test consumer imports
+        run: |
+          mkdir -p /tmp/shoppy-consumer-test
+          cd /tmp/shoppy-consumer-test
+
+          # Install packed packages
+          npm init -y
+          npm install ../../urlstate.tgz ../../variants.tgz
+
+          # Create package.json with type: module
+          echo '{"type": "module"}' > package.json
+
+          # Create test TypeScript file for type checking
+          cat > test-imports.ts << 'EOF'
+          import {toggleFilter} from '@shoppy/urlstate/filters/toggleFilter';
+          import {findVariant} from '@shoppy/variants/findVariant';
+          import type {SearchState} from '@shoppy/urlstate/types/searchState';
+          import type {VariantLike} from '@shoppy/variants/types/variant';
+
+          // Type check only
+          const state: SearchState = {filters: {}};
+          const result = toggleFilter(state, 'color', 'red');
+          EOF
+
+          # Type check (bundler resolution)
+          npx tsc --noEmit --moduleResolution bundler --module esnext test-imports.ts
+
+          # Create runtime test file
+          cat > test-runtime.mjs << 'EOF'
+          import {toggleFilter} from '@shoppy/urlstate/filters/toggleFilter';
+          import {findVariant} from '@shoppy/variants/findVariant';
+
+          // Runtime execution test
+          const state = {filters: {}};
+          const result = toggleFilter(state, 'color', 'red');
+
+          if (!result.filters || !result.filters.color || result.filters.color[0] !== 'red') {
+            throw new Error('toggleFilter failed runtime test');
+          }
+
+          console.log('✅ Runtime imports work correctly');
+          EOF
+
+          # Runtime execution test (Node ESM)
+          node test-runtime.mjs
+
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    needs: [test, consumer-smoke-test]
+    if: startsWith(github.ref, 'refs/tags/@shoppy/')
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Extract package from tag
+        id: extract
+        run: |
+          # Tag format: @shoppy/variants@1.0.0 -> package=variants, version=1.0.0
+          TAG="${GITHUB_REF#refs/tags/}"
+          PACKAGE=$(echo "$TAG" | sed 's/@shoppy\/\([^@]*\)@.*/\1/')
+          VERSION=$(echo "$TAG" | sed 's/@shoppy\/[^@]*@//')
+          echo "package=$PACKAGE" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "📦 Publishing: @shoppy/$PACKAGE@$VERSION"
+
+      - name: Verify package version matches tag
+        run: |
+          PACKAGE="${{ steps.extract.outputs.package }}"
+          VERSION="${{ steps.extract.outputs.version }}"
+          PKG_VERSION=$(node -p "require('./packages/$PACKAGE/package.json').version")
+          if [ "$PKG_VERSION" != "$VERSION" ]; then
+            echo "❌ Version mismatch: package.json=$PKG_VERSION, tag=$VERSION"
+            exit 1
+          fi
+          echo "✅ Version matches: $VERSION"
+
+      - name: Publish package
+        run: |
+          cd packages/${{ steps.extract.outputs.package }}
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

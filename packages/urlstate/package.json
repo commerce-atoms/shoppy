@@ -1,0 +1,115 @@
+{
+  "name": "@shoppy/urlstate",
+  "version": "0.0.1",
+  "description": "Schema-driven URL state management for filters, sort, and pagination",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "filters",
+    "url-state",
+    "search",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/urlstate"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/urlstate",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./defineSearchSchema": {
+      "types": "./dist/schema/defineSearchSchema.d.ts",
+      "import": "./dist/schema/defineSearchSchema.js"
+    },
+    "./parseSearchState": {
+      "types": "./dist/parse/parseSearchState.d.ts",
+      "import": "./dist/parse/parseSearchState.js"
+    },
+    "./serializeSearchState": {
+      "types": "./dist/serialize/serializeSearchState.d.ts",
+      "import": "./dist/serialize/serializeSearchState.js"
+    },
+    "./patchSearchParams": {
+      "types": "./dist/patch/patchSearchParams.d.ts",
+      "import": "./dist/patch/patchSearchParams.js"
+    },
+    "./filters/toggleFilter": {
+      "types": "./dist/filters/toggleFilter.d.ts",
+      "import": "./dist/filters/toggleFilter.js"
+    },
+    "./filters/setRangeFilter": {
+      "types": "./dist/filters/setRangeFilter.d.ts",
+      "import": "./dist/filters/setRangeFilter.js"
+    },
+    "./filters/clearFilter": {
+      "types": "./dist/filters/clearFilter.d.ts",
+      "import": "./dist/filters/clearFilter.js"
+    },
+    "./filters/clearAllFilters": {
+      "types": "./dist/filters/clearAllFilters.d.ts",
+      "import": "./dist/filters/clearAllFilters.js"
+    },
+    "./setSort": {
+      "types": "./dist/sort/setSort.d.ts",
+      "import": "./dist/sort/setSort.js"
+    },
+    "./pagination/setPage": {
+      "types": "./dist/pagination/setPage.d.ts",
+      "import": "./dist/pagination/setPage.js"
+    },
+    "./pagination/setCursor": {
+      "types": "./dist/pagination/setCursor.d.ts",
+      "import": "./dist/pagination/setCursor.js"
+    },
+    "./types/searchState": {
+      "types": "./dist/types/searchState.d.ts",
+      "import": "./dist/types/searchState.js"
+    },
+    "./types/schema": {
+      "types": "./dist/types/schema.d.ts",
+      "import": "./dist/types/schema.js"
+    },
+    "./types/options": {
+      "types": "./dist/types/options.d.ts",
+      "import": "./dist/types/options.js"
+    },
+    "./selectors/getRangeFilter": {
+      "types": "./dist/selectors/getRangeFilter.d.ts",
+      "import": "./dist/selectors/getRangeFilter.js"
+    },
+    "./selectors/getFilterValues": {
+      "types": "./dist/selectors/getFilterValues.d.ts",
+      "import": "./dist/selectors/getFilterValues.js"
+    }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
+}

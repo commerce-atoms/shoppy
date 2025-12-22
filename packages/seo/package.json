@@ -1,0 +1,101 @@
+{
+  "name": "@shoppy/seo",
+  "version": "0.0.1",
+  "description": "Pure SEO meta and JSON-LD builder",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "seo",
+    "meta",
+    "json-ld",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/seo"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/seo",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./meta/buildPageMeta": {
+      "types": "./dist/meta/buildPageMeta.d.ts",
+      "import": "./dist/meta/buildPageMeta.js"
+    },
+    "./meta/buildProductMeta": {
+      "types": "./dist/meta/buildProductMeta.d.ts",
+      "import": "./dist/meta/buildProductMeta.js"
+    },
+    "./meta/buildCollectionMeta": {
+      "types": "./dist/meta/buildCollectionMeta.d.ts",
+      "import": "./dist/meta/buildCollectionMeta.js"
+    },
+    "./jsonld/buildProductJsonLd": {
+      "types": "./dist/jsonld/buildProductJsonLd.d.ts",
+      "import": "./dist/jsonld/buildProductJsonLd.js"
+    },
+    "./jsonld/buildCollectionJsonLd": {
+      "types": "./dist/jsonld/buildCollectionJsonLd.d.ts",
+      "import": "./dist/jsonld/buildCollectionJsonLd.js"
+    },
+    "./normalize/stripHtml": {
+      "types": "./dist/normalize/stripHtml.d.ts",
+      "import": "./dist/normalize/stripHtml.js"
+    },
+    "./normalize/normalizeText": {
+      "types": "./dist/normalize/normalizeText.d.ts",
+      "import": "./dist/normalize/normalizeText.js"
+    },
+    "./normalize/pickSeoImage": {
+      "types": "./dist/normalize/pickSeoImage.d.ts",
+      "import": "./dist/normalize/pickSeoImage.js"
+    },
+    "./types/meta": {
+      "types": "./dist/types/meta.d.ts",
+      "import": "./dist/types/meta.js"
+    },
+    "./types/page": {
+      "types": "./dist/types/page.d.ts",
+      "import": "./dist/types/page.js"
+    },
+    "./types/product": {
+      "types": "./dist/types/product.d.ts",
+      "import": "./dist/types/product.js"
+    },
+    "./types/collection": {
+      "types": "./dist/types/collection.d.ts",
+      "import": "./dist/types/collection.js"
+    }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "test:run": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
+}
+

@@ -1,0 +1,87 @@
+{
+    "name": "@shoppy/filters",
+    "version": "0.0.1",
+    "description": "Pure in-memory product filtering for Shopify storefronts",
+    "type": "module",
+    "sideEffects": false,
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "shopify",
+        "hydrogen",
+        "filters",
+        "products",
+        "ecommerce",
+        "utilities",
+        "search"
+    ],
+    "author": "Commerce Atoms",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/commerce-atoms/shoppy",
+        "directory": "packages/filters"
+    },
+    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/filters",
+    "bugs": {
+        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        "./apply/applyFilters": {
+            "types": "./dist/apply/applyFilters.d.ts",
+            "import": "./dist/apply/applyFilters.js"
+        },
+        "./filter/filterByTags": {
+            "types": "./dist/filter/filterByTags.d.ts",
+            "import": "./dist/filter/filterByTags.js"
+        },
+        "./filter/filterByPriceRange": {
+            "types": "./dist/filter/filterByPriceRange.d.ts",
+            "import": "./dist/filter/filterByPriceRange.js"
+        },
+        "./filter/filterByAvailability": {
+            "types": "./dist/filter/filterByAvailability.d.ts",
+            "import": "./dist/filter/filterByAvailability.js"
+        },
+        "./filter/filterByOptions": {
+            "types": "./dist/filter/filterByOptions.d.ts",
+            "import": "./dist/filter/filterByOptions.js"
+        },
+        "./filter/filterProduct": {
+            "types": "./dist/filter/filterProduct.d.ts",
+            "import": "./dist/filter/filterProduct.js"
+        },
+        "./price/getProductMinPrice": {
+            "types": "./dist/price/getProductMinPrice.d.ts",
+            "import": "./dist/price/getProductMinPrice.js"
+        },
+        "./types/filterCriteria": {
+            "types": "./dist/types/filterCriteria.d.ts",
+            "import": "./dist/types/filterCriteria.js"
+        },
+        "./types/product": {
+            "types": "./dist/types/product.d.ts",
+            "import": "./dist/types/product.js"
+        }
+    },
+    "dependencies": {},
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "pack:check": "npm pack --dry-run --silent",
+        "prepublishOnly": "npm run build"
+    }
+}
