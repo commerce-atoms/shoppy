@@ -80,6 +80,16 @@ We use **semantic versioning** (semver) and **independent versioning** per packa
 
 **Note:** For publishing process, see [docs/RELEASING.md](./docs/RELEASING.md).
 
+## Adding a Changeset
+
+After making changes to a package:
+
+```bash
+npx changeset
+```
+
+Select the changed packages, bump type, and write a summary. Commit the changeset file.
+
 ## Package Structure
 
 ```
