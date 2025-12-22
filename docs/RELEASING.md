@@ -4,9 +4,13 @@ This document describes the release process for `@commerce-atoms/*` packages.
 
 ## Overview
 
-Releases use **Changesets** for version management and changelog generation.
+Releases are fully automated using Changesets.
 
-**Flow:** Add changeset → Version → Commit → Publish
+1. Add a Changeset in your PR
+2. Merge to `main`
+3. CI versions packages and publishes to npm
+
+Manual tagging and `npm version` are not used.
 
 ## Release Process
 
@@ -40,41 +44,12 @@ git commit -m "chore: add changeset for <package-name>"
 git push
 ```
 
-### 3. Version packages (when ready to release)
+### 3. Merge to main
 
-```bash
-npx changeset version
-```
-
-This will:
-- Update package.json versions
-- Update CHANGELOG.md files
-- Delete consumed changeset files
-
-### 4. Commit version changes
-
-```bash
-git add .
-git commit -m "chore: version packages"
-git push
-```
-
-### 5. Publish (manual for now)
-
-```bash
-npx changeset publish
-```
-
-This will:
-- Build packages
-- Publish to npm
-- Create git tags automatically
-
-Then push tags:
-
-```bash
-git push --follow-tags
-```
+Once your PR is merged to `main`:
+- GitHub Actions automatically runs `changeset version`
+- Creates a "Version Packages" PR
+- Merge that PR to trigger automatic publishing to npm
 
 ## Independent Versioning
 

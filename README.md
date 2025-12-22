@@ -114,6 +114,15 @@ import { findVariant } from "@commerce-atoms/variants";
 
 ---
 
+## Releases
+
+This project uses **Changesets** for versioning.
+Packages are published automatically on merge to `main`.
+
+- Add a Changeset for user-facing changes
+- Do not run `npm version`
+- Do not create tags manually
+
 ## 📚 Documentation
 
 **[Architecture](./docs/ARCHITECTURE.md)** • **[Contributing](./CONTRIBUTING.md)** • **[Docs Index](./docs/README.md)**
