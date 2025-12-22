@@ -1,22 +1,28 @@
 # Releasing Packages
 
-This document describes the release process for `@shoppy/*` packages.
+This document describes the release process for `@commerce-atoms/*` packages.
 
 ## Overview
 
-Releases are **tag-driven** and published automatically via GitHub Actions CI.
+Releases use **Changesets** for version management and changelog generation.
 
-**Flow:** Bump version → Commit → Tag → Push → CI publishes
+**Flow:** Add changeset → Version → Commit → Publish
 
-## Release Checklist
+## Release Process
 
-### 1. Update Version
+### 1. Add a changeset
+
+After making changes to a package:
 
 ```bash
-cd packages/<package-name>
-# Edit package.json version directly, or:
-npm version patch|minor|major --no-git-tag-version
+npx changeset
 ```
+
+This will:
+- Prompt you to select which packages changed
+- Ask for the bump type (patch/minor/major)
+- Ask for a summary of changes
+- Create a changeset file in `.changeset/`
 
 **Version Strategy:**
 
@@ -26,65 +32,49 @@ npm version patch|minor|major --no-git-tag-version
 
 **0.x Semver Policy:** During 0.x, breaking changes bump **minor** (0.MINOR.PATCH). After 1.0, breaking changes bump major.
 
-### 2. Update CHANGELOG.md
-
-Move items from `[Unreleased]` to a new version section:
-
-```markdown
-## [0.1.0]
-
-### Added
-
-- Feature X
-
-### Changed
-
-- Improvement Z
-
-## [Unreleased]
-```
-
-### 3. Run Verification Locally
+### 2. Commit the changeset
 
 ```bash
-npm run verify
+git add .changeset
+git commit -m "chore: add changeset for <package-name>"
+git push
 ```
 
-This runs: typecheck → lint → build → test → pack:check
+### 3. Version packages (when ready to release)
 
-### 4. Commit
+```bash
+npx changeset version
+```
+
+This will:
+- Update package.json versions
+- Update CHANGELOG.md files
+- Delete consumed changeset files
+
+### 4. Commit version changes
 
 ```bash
 git add .
-git commit -m "chore(<package-name>): release <version>"
+git commit -m "chore: version packages"
+git push
 ```
 
-### 5. Tag (Triggers Publish)
+### 5. Publish (manual for now)
 
 ```bash
-git tag "@commerce-atoms/<package-name>@<version>"
+npx changeset publish
 ```
 
-**Example:** `git tag "@commerce-atoms/variants@0.1.0"`
+This will:
+- Build packages
+- Publish to npm
+- Create git tags automatically
 
-### 6. Push
+Then push tags:
 
 ```bash
-git push origin main --tags
+git push --follow-tags
 ```
-
-CI will:
-
-1. Run all tests (Node 18/20/22)
-2. Run consumer smoke test
-3. Verify package.json version matches tag
-4. Publish to npm with provenance
-
-### 7. Verify Publication
-
-- Check GitHub Actions for green publish job
-- Verify on npm: `npm view @commerce-atoms/<package-name>`
-- Test installation: `npm install @commerce-atoms/<package-name>@<version>`
 
 ## Independent Versioning
 
@@ -99,27 +89,15 @@ Each package is versioned independently:
 ### "Package already exists"
 
 - Version already published to npm
-- Bump version and create new tag
+- Run `npx changeset version` again to bump
 
-### "Version mismatch" in CI
+### "No changesets found"
 
-- Tag version doesn't match package.json version
-- Delete tag, fix package.json, re-tag
-
-```bash
-git tag -d @commerce-atoms/variants@0.1.0
-git push origin :refs/tags/@commerce-atoms/variants@0.1.0
-# Fix package.json, commit, re-tag
-```
+- You need to add a changeset first: `npx changeset`
+- Commit it before running `npx changeset version`
 
 ### "Missing files in pack"
 
 - Check `files` array in `package.json`
 - Verify `dist/` was built
 - Run `npm run verify` locally
-
-### CI publish failed
-
-- Check `NPM_TOKEN` secret is set in GitHub repo
-- Verify npm token has publish access to `@commerce-atoms` scope
-- Check CI logs for specific error

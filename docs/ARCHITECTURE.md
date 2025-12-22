@@ -107,14 +107,14 @@ Each `package.json` maintains its own `version` field.
 
 ## Publishing Workflow
 
-Releases are **tag-driven** — CI publishes automatically.
+Releases use **Changesets** for version management.
 
-1. Make changes in `packages/<package>/{src,CHANGELOG.md}`
-2. Update `packages/<package>/package.json` version (semver)
-3. Commit and push to main
-4. Tag release: `git tag @commerce-atoms/<package>@<version>`
-5. Push tag: `git push origin --tags`
-6. CI runs tests → publishes to npm
+1. Make changes in `packages/<package>/src/`
+2. Add changeset: `npx changeset`
+3. Commit changeset
+4. When ready: `npx changeset version` (updates versions + CHANGELOGs)
+5. Commit version changes
+6. Publish: `npx changeset publish`
 
 See [RELEASING.md](./RELEASING.md) for full details.
 
