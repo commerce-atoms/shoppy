@@ -31,6 +31,7 @@
   },
   "publishConfig": {
     "access": "public",
+    "provenance": true
   },
   "exports": {
     "./package.json": "./package.json",
@@ -91,10 +92,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
-        "test": "vitest run",
-        "test:run": "vitest run",
+    "test": "vitest run",
+    "test:run": "vitest run",
     "pack:check": "npm pack --dry-run --silent",
     "prepublishOnly": "npm run build"
   }
 }
-

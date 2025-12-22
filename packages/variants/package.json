@@ -30,6 +30,7 @@
   },
   "publishConfig": {
     "access": "public",
+    "provenance": true
   },
   "exports": {
     "./package.json": "./package.json",

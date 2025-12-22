@@ -1,81 +1,82 @@
 {
-    "name": "@commerce-atoms/metafield",
-    "version": "0.0.1",
-    "description": "Pure metafield and metaobject extraction/parsing",
-    "type": "module",
-    "sideEffects": false,
-    "files": [
-        "dist",
-        "README.md",
-        "LICENSE"
-    ],
-    "keywords": [
-        "shopify",
-        "hydrogen",
-        "metafield",
-        "metaobject",
-        "ecommerce",
-        "utilities"
-    ],
-    "author": "Commerce Atoms",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/commerce-atoms/shoppy",
-        "directory": "packages/metafield"
+  "name": "@commerce-atoms/metafield",
+  "version": "0.0.1",
+  "description": "Pure metafield and metaobject extraction/parsing",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "shopify",
+    "hydrogen",
+    "metafield",
+    "metaobject",
+    "ecommerce",
+    "utilities"
+  ],
+  "author": "Commerce Atoms",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/commerce-atoms/shoppy",
+    "directory": "packages/metafield"
+  },
+  "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/metafield",
+  "bugs": {
+    "url": "https://github.com/commerce-atoms/shoppy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./metafields/getMetafield": {
+      "types": "./dist/metafields/getMetafield.d.ts",
+      "import": "./dist/metafields/getMetafield.js"
     },
-    "homepage": "https://github.com/commerce-atoms/shoppy/tree/main/packages/metafield",
-    "bugs": {
-        "url": "https://github.com/commerce-atoms/shoppy/issues"
+    "./metafields/getMetafieldValue": {
+      "types": "./dist/metafields/getMetafieldValue.d.ts",
+      "import": "./dist/metafields/getMetafieldValue.js"
     },
-    "publishConfig": {
-        "access": "public",
+    "./metaobjects/getMetaobjectReferenceFromMetafield": {
+      "types": "./dist/metaobjects/getMetaobjectReferenceFromMetafield.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectReferenceFromMetafield.js"
     },
-    "exports": {
-        "./package.json": "./package.json",
-        "./metafields/getMetafield": {
-            "types": "./dist/metafields/getMetafield.d.ts",
-            "import": "./dist/metafields/getMetafield.js"
-        },
-        "./metafields/getMetafieldValue": {
-            "types": "./dist/metafields/getMetafieldValue.d.ts",
-            "import": "./dist/metafields/getMetafieldValue.js"
-        },
-        "./metaobjects/getMetaobjectReferenceFromMetafield": {
-            "types": "./dist/metaobjects/getMetaobjectReferenceFromMetafield.d.ts",
-            "import": "./dist/metaobjects/getMetaobjectReferenceFromMetafield.js"
-        },
-        "./metaobjects/getMetaobjectField": {
-            "types": "./dist/metaobjects/getMetaobjectField.d.ts",
-            "import": "./dist/metaobjects/getMetaobjectField.js"
-        },
-        "./parse/parseMetafieldValue": {
-            "types": "./dist/parse/parseMetafieldValue.d.ts",
-            "import": "./dist/parse/parseMetafieldValue.js"
-        },
-        "./types/metafield": {
-            "types": "./dist/types/metafield.d.ts",
-            "import": "./dist/types/metafield.js"
-        },
-        "./types/metaobject": {
-            "types": "./dist/types/metaobject.d.ts",
-            "import": "./dist/types/metaobject.js"
-        },
-        "./types/parse": {
-            "types": "./dist/types/parse.d.ts",
-            "import": "./dist/types/parse.js"
-        }
+    "./metaobjects/getMetaobjectField": {
+      "types": "./dist/metaobjects/getMetaobjectField.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectField.js"
     },
-    "dependencies": {},
-    "engines": {
-        "node": ">=18.0.0"
+    "./parse/parseMetafieldValue": {
+      "types": "./dist/parse/parseMetafieldValue.d.ts",
+      "import": "./dist/parse/parseMetafieldValue.js"
     },
-    "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
-        "typecheck": "tsc --noEmit",
-        "test": "vitest run",
-        "pack:check": "npm pack --dry-run --silent",
-        "prepublishOnly": "npm run build"
+    "./types/metafield": {
+      "types": "./dist/types/metafield.d.ts",
+      "import": "./dist/types/metafield.js"
+    },
+    "./types/metaobject": {
+      "types": "./dist/types/metaobject.d.ts",
+      "import": "./dist/types/metaobject.js"
+    },
+    "./types/parse": {
+      "types": "./dist/types/parse.d.ts",
+      "import": "./dist/types/parse.js"
     }
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run --silent",
+    "prepublishOnly": "npm run build"
+  }
 }
