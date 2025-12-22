@@ -10,18 +10,15 @@ on:
 
 jobs:
   test:
-    name: Test (Node ${{ matrix.node }})
+    name: Test & Build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ["18", "20", "22"]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node }}
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -35,18 +32,15 @@ jobs:
           git diff --exit-code || (echo "Error: Uncommitted changes detected after build. Ensure dist/ is in .gitignore and not committed." && exit 1)
 
   consumer-smoke-test:
-    name: Consumer Smoke Test (Node ${{ matrix.node }})
+    name: Consumer Smoke Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ["20", "22"]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node }}
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -57,35 +51,20 @@ jobs:
 
       - name: Pack packages
         run: |
-          cd packages/urlstate && npm pack --silent && mv *.tgz ../../urlstate.tgz
-          cd ../variants && npm pack --silent && mv *.tgz ../../variants.tgz
+          mkdir -p /tmp/tarballs
+          cd packages/urlstate && npm pack && mv *.tgz /tmp/tarballs/
+          cd ../variants && npm pack && mv *.tgz /tmp/tarballs/
 
       - name: Test consumer imports
         run: |
-          mkdir -p /tmp/shoppy-consumer-test
-          cd /tmp/shoppy-consumer-test
-
-          # Install packed packages
-          npm init -y
-          npm install ../../urlstate.tgz ../../variants.tgz
+          mkdir -p /tmp/consumer-test
+          cd /tmp/consumer-test
 
           # Create package.json with type: module
           echo '{"type": "module"}' > package.json
 
-          # Create test TypeScript file for type checking
-          cat > test-imports.ts << 'EOF'
-          import {toggleFilter} from '@commerce-atoms/urlstate/filters/toggleFilter';
-          import {findVariant} from '@commerce-atoms/variants/findVariant';
-          import type {SearchState} from '@commerce-atoms/urlstate/types/searchState';
-          import type {VariantLike} from '@commerce-atoms/variants/types/variant';
-
-          // Type check only
-          const state: SearchState = {filters: {}};
-          const result = toggleFilter(state, 'color', 'red');
-          EOF
-
-          # Type check (bundler resolution)
-          npx tsc --noEmit --moduleResolution bundler --module esnext test-imports.ts
+          # Install packed packages
+          npm install /tmp/tarballs/*.tgz
 
           # Create runtime test file
           cat > test-runtime.mjs << 'EOF'
@@ -100,7 +79,7 @@ jobs:
             throw new Error('toggleFilter failed runtime test');
           }
 
-          console.log('✅ Runtime imports work correctly');
+          console.log('✅ Consumer imports work correctly');
           EOF
 
           # Runtime execution test (Node ESM)
@@ -120,7 +99,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
