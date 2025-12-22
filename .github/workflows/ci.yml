@@ -30,7 +30,7 @@ jobs:
           git diff --exit-code || (echo "Error: Uncommitted changes detected after build. Ensure dist/ is in .gitignore and not committed." && exit 1)
 
   consumer-smoke-test:
-    name: Consumer Smoke Test
+    name: Smoke Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
