@@ -1,5 +1,5 @@
 {
-    "name": "@shoppy/filters",
+    "name": "@commerce-atoms/filters",
     "version": "0.0.1",
     "description": "Pure in-memory product filtering for Shopify storefronts",
     "type": "module",

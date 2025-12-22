@@ -62,10 +62,10 @@ git commit -m "chore(<package-name>): release <version>"
 ### 5. Tag (Triggers Publish)
 
 ```bash
-git tag "@shoppy/<package-name>@<version>"
+git tag "@commerce-atoms/<package-name>@<version>"
 ```
 
-**Example:** `git tag "@shoppy/variants@0.1.0"`
+**Example:** `git tag "@commerce-atoms/variants@0.1.0"`
 
 ### 6. Push
 
@@ -83,14 +83,14 @@ CI will:
 ### 7. Verify Publication
 
 - Check GitHub Actions for green publish job
-- Verify on npm: `npm view @shoppy/<package-name>`
-- Test installation: `npm install @shoppy/<package-name>@<version>`
+- Verify on npm: `npm view @commerce-atoms/<package-name>`
+- Test installation: `npm install @commerce-atoms/<package-name>@<version>`
 
 ## Independent Versioning
 
 Each package is versioned independently:
 
-- `@shoppy/urlstate` can be at `0.1.0` while `@shoppy/variants` is at `0.2.0`
+- `@commerce-atoms/urlstate` can be at `0.1.0` while `@commerce-atoms/variants` is at `0.2.0`
 - Never synchronize versions across packages
 - Each package maintains its own `CHANGELOG.md`
 
@@ -107,8 +107,8 @@ Each package is versioned independently:
 - Delete tag, fix package.json, re-tag
 
 ```bash
-git tag -d @shoppy/variants@0.1.0
-git push origin :refs/tags/@shoppy/variants@0.1.0
+git tag -d @commerce-atoms/variants@0.1.0
+git push origin :refs/tags/@commerce-atoms/variants@0.1.0
 # Fix package.json, commit, re-tag
 ```
 
@@ -121,5 +121,5 @@ git push origin :refs/tags/@shoppy/variants@0.1.0
 ### CI publish failed
 
 - Check `NPM_TOKEN` secret is set in GitHub repo
-- Verify npm token has publish access to `@shoppy` scope
+- Verify npm token has publish access to `@commerce-atoms` scope
 - Check CI logs for specific error

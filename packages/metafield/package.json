@@ -1,5 +1,5 @@
 {
-    "name": "@shoppy/metafield",
+    "name": "@commerce-atoms/metafield",
     "version": "0.0.1",
     "description": "Pure metafield and metaobject extraction/parsing",
     "type": "module",

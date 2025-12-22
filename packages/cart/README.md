@@ -1,4 +1,4 @@
-# @shoppy/cart
+# @commerce-atoms/cart
 
 **Pure cart line math engine for Shopify products.**
 
@@ -27,13 +27,13 @@ This package explicitly does **NOT**:
 
 ```typescript
 // Calculate cart subtotal from line items
-import { calculateSubtotal } from "@shoppy/cart/totals/calculateSubtotal";
+import { calculateSubtotal } from "@commerce-atoms/cart/totals/calculateSubtotal";
 
 const subtotal = calculateSubtotal(cartLines);
 // Returns: 199.97
 
 // Add a new line to cart
-import { addCartLine } from "@shoppy/cart/line/addCartLine";
+import { addCartLine } from "@commerce-atoms/cart/line/addCartLine";
 
 const updatedLines = addCartLine(lines, {
   id: "123",
@@ -42,17 +42,17 @@ const updatedLines = addCartLine(lines, {
 });
 
 // Update line quantity
-import { updateCartLine } from "@shoppy/cart/line/updateCartLine";
+import { updateCartLine } from "@commerce-atoms/cart/line/updateCartLine";
 
 const updatedLines = updateCartLine(lines, "line-id", { quantity: 5 });
 
 // Remove line from cart
-import { removeCartLine } from "@shoppy/cart/line/removeCartLine";
+import { removeCartLine } from "@commerce-atoms/cart/line/removeCartLine";
 
 const updatedLines = removeCartLine(lines, "line-id");
 
 // Merge duplicate lines
-import { mergeCartLines } from "@shoppy/cart/line/mergeCartLines";
+import { mergeCartLines } from "@commerce-atoms/cart/line/mergeCartLines";
 
 const mergedLines = mergeCartLines(lines1, lines2);
 ```
@@ -60,6 +60,6 @@ const mergedLines = mergeCartLines(lines1, lines2);
 ## Types
 
 ```typescript
-import type { CartLine } from "@shoppy/cart/types/cartLine";
-import type { Cart } from "@shoppy/cart/types/cart";
+import type { CartLine } from "@commerce-atoms/cart/types/cartLine";
+import type { Cart } from "@commerce-atoms/cart/types/cart";
 ```

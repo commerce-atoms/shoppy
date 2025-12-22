@@ -1,4 +1,4 @@
-# @shoppy/money
+# @commerce-atoms/money
 
 **Pure money formatting and compare-at pricing.**
 
@@ -20,7 +20,7 @@ This package explicitly does **NOT**:
 ### formatMoney
 
 ```typescript
-import {formatMoney} from '@shoppy/money/format/formatMoney';
+import {formatMoney} from '@commerce-atoms/money/format/formatMoney';
 
 const formatted = formatMoney({amount: '19.99', currencyCode: 'USD'});
 // Returns: "$19.99"
@@ -32,7 +32,7 @@ const formatted = formatMoney({amount: 'invalid', currencyCode: 'USD'});
 ### formatRange
 
 ```typescript
-import {formatRange} from '@shoppy/money/format/formatRange';
+import {formatRange} from '@commerce-atoms/money/format/formatRange';
 
 const range = formatRange(
   {amount: '10.00', currencyCode: 'USD'},
@@ -50,7 +50,7 @@ const single = formatRange(
 ### formatCompare
 
 ```typescript
-import {formatCompare} from '@shoppy/money/compare/formatCompare';
+import {formatCompare} from '@commerce-atoms/money/compare/formatCompare';
 
 const result = formatCompare(
   {amount: '19.99', currencyCode: 'USD'},

@@ -1,4 +1,4 @@
-# @shoppy/metafield
+# @commerce-atoms/metafield
 
 **Pure metafield and metaobject extraction/parsing.**
 
@@ -20,7 +20,7 @@ This package explicitly does **NOT**:
 ### getMetafield
 
 ```typescript
-import {getMetafield} from '@shoppy/metafield/metafields/getMetafield';
+import {getMetafield} from '@commerce-atoms/metafield/metafields/getMetafield';
 
 const metafield = getMetafield(product, 'custom', 'color');
 if (metafield) {
@@ -31,7 +31,7 @@ if (metafield) {
 ### getMetafieldValue
 
 ```typescript
-import {getMetafieldValue} from '@shoppy/metafield/metafields/getMetafieldValue';
+import {getMetafieldValue} from '@commerce-atoms/metafield/metafields/getMetafieldValue';
 
 // Non-strict mode (returns undefined on failure)
 const color = getMetafieldValue(product, 'custom', 'color');
@@ -59,7 +59,7 @@ if (result.ok) {
 ### getMetaobjectReferenceFromMetafield
 
 ```typescript
-import {getMetaobjectReferenceFromMetafield} from '@shoppy/metafield/metaobjects/getMetaobjectReferenceFromMetafield';
+import {getMetaobjectReferenceFromMetafield} from '@commerce-atoms/metafield/metaobjects/getMetaobjectReferenceFromMetafield';
 
 const reference = getMetaobjectReferenceFromMetafield(
   product,
@@ -74,7 +74,7 @@ if (reference) {
 ### getMetaobjectField
 
 ```typescript
-import {getMetaobjectField} from '@shoppy/metafield/metaobjects/getMetaobjectField';
+import {getMetaobjectField} from '@commerce-atoms/metafield/metaobjects/getMetaobjectField';
 
 const field = getMetaobjectField(metaobject, 'description');
 if (field) {

@@ -37,43 +37,43 @@ Shoppy is a collection of **small, single-purpose packages** that solve specific
 
 ## 📦 Packages
 
-### [@shoppy/cart](./packages/cart/README.md)
+### [@commerce-atoms/cart](./packages/cart/README.md)
 
 Pure cart line math engine. Add/merge/update cart items, compute subtotals and quantities, normalize cart structure.
 
-### [@shoppy/date](./packages/date/README.md)
+### [@commerce-atoms/date](./packages/date/README.md)
 
 Commerce-safe date helpers. Generate countdown strings, calculate time differences, check expiration dates.
 
-### [@shoppy/discounts](./packages/discounts/README.md)
+### [@commerce-atoms/discounts](./packages/discounts/README.md)
 
 Pure promotion logic engine. Apply percentage/fixed discounts, validate rules, compose multiple discounts.
 
-### [@shoppy/filters](./packages/filters/README.md)
+### [@commerce-atoms/filters](./packages/filters/README.md)
 
 Pure in-memory product filtering. Filter by tags, price range, availability, options. Compose multiple filters.
 
-### [@shoppy/metafield](./packages/metafield/README.md)
+### [@commerce-atoms/metafield](./packages/metafield/README.md)
 
 Deterministic metafield and metaobject extraction/parsing. Locate metafields by namespace/key, parse values (string, json, number, boolean), extract metaobject references and fields without optional chaining soup.
 
-### [@shoppy/money](./packages/money/README.md)
+### [@commerce-atoms/money](./packages/money/README.md)
 
 Pure money formatting and compare-at pricing. Format currency with Intl.NumberFormat, format price ranges, calculate discount percentages, and apply compare-at display rules.
 
-### [@shoppy/pagination](./packages/pagination/README.md)
+### [@commerce-atoms/pagination](./packages/pagination/README.md)
 
 Pure pagination math helpers. Compute page bounds, generate pagination metadata, calculate offset windows.
 
-### [@shoppy/seo](./packages/seo/README.md)
+### [@commerce-atoms/seo](./packages/seo/README.md)
 
 Deterministic SEO meta and JSON-LD builder. Build consistent meta objects for pages, products, and collections with safe fallbacks, OpenGraph/Twitter cards, and structured data schemas.
 
-### [@shoppy/urlstate](./packages/urlstate/README.md)
+### [@commerce-atoms/urlstate](./packages/urlstate/README.md)
 
 Schema-driven filter/sort/pagination state management for URLs. Parse URL params → typed state, serialize state → URL params, filter primitives (toggle, range, clear), sort and pagination helpers.
 
-### [@shoppy/variants](./packages/variants/README.md)
+### [@commerce-atoms/variants](./packages/variants/README.md)
 
 Pure variant selection logic for Shopify products. Find variants by selected options, pick default variants (4 policies), compute availability maps, URL ↔ selection sync, normalize options.
 
@@ -84,26 +84,26 @@ Pure variant selection logic for Shopify products. Find variants by selected opt
 ### Installation
 
 ```bash
-npm install @shoppy/metafield
-npm install @shoppy/money
-npm install @shoppy/seo
-npm install @shoppy/urlstate
-npm install @shoppy/variants
+npm install @commerce-atoms/metafield
+npm install @commerce-atoms/money
+npm install @commerce-atoms/seo
+npm install @commerce-atoms/urlstate
+npm install @commerce-atoms/variants
 ```
 
 ### Usage
 
 ```typescript
 // Explicit imports (no barrel files)
-import { getMetafieldValue } from "@shoppy/metafield/metafields/getMetafieldValue";
-import { formatMoney } from "@shoppy/money/format/formatMoney";
-import { buildProductMeta } from "@shoppy/seo/meta/buildProductMeta";
-import { parseSearchState } from "@shoppy/urlstate/parseSearchState";
-import { toggleFilter } from "@shoppy/urlstate/filters/toggleFilter";
-import { findVariant } from "@shoppy/variants/findVariant";
+import { getMetafieldValue } from "@commerce-atoms/metafield/metafields/getMetafieldValue";
+import { formatMoney } from "@commerce-atoms/money/format/formatMoney";
+import { buildProductMeta } from "@commerce-atoms/seo/meta/buildProductMeta";
+import { parseSearchState } from "@commerce-atoms/urlstate/parseSearchState";
+import { toggleFilter } from "@commerce-atoms/urlstate/filters/toggleFilter";
+import { findVariant } from "@commerce-atoms/variants/findVariant";
 
 // ❌ This won't work (we don't support barrel imports)
-import { findVariant } from "@shoppy/variants";
+import { findVariant } from "@commerce-atoms/variants";
 ```
 
 ---

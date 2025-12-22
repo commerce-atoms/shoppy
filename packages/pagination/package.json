@@ -1,5 +1,5 @@
 {
-    "name": "@shoppy/pagination",
+    "name": "@commerce-atoms/pagination",
     "version": "0.0.1",
     "description": "Pure pagination math helpers for Shopify storefronts",
     "type": "module",

@@ -1,4 +1,4 @@
-# @shoppy/pagination
+# @commerce-atoms/pagination
 
 **Pure pagination math helpers for Shopify storefronts.**
 
@@ -25,19 +25,19 @@ This package explicitly does **NOT**:
 
 ```typescript
 // Get page bounds (array indices)
-import { getPageBounds } from "@shoppy/pagination/page/getPageBounds";
+import { getPageBounds } from "@commerce-atoms/pagination/page/getPageBounds";
 
 const bounds = getPageBounds(100, 10, 2);
 // Returns: {start: 10, end: 20}
 
 // Get pagination metadata
-import { getPaginationMeta } from "@shoppy/pagination/page/getPaginationMeta";
+import { getPaginationMeta } from "@commerce-atoms/pagination/page/getPaginationMeta";
 
 const meta = getPaginationMeta(100, 10, 2);
 // Returns: {totalPages: 10, currentPage: 2, hasNext: true, hasPrevious: true}
 
 // Get offset window (for offset-based pagination)
-import { getOffsetWindow } from "@shoppy/pagination/window/getOffsetWindow";
+import { getOffsetWindow } from "@commerce-atoms/pagination/window/getOffsetWindow";
 
 const window = getOffsetWindow(100, { afterOffset: 5, first: 10 });
 // Returns: {start: 6, end: 16, direction: 'forward'}
@@ -46,7 +46,7 @@ const window = getOffsetWindow(100, { afterOffset: 5, first: 10 });
 ## Types
 
 ```typescript
-import type { PageBounds } from "@shoppy/pagination/types/pageBounds";
-import type { PaginationMeta } from "@shoppy/pagination/types/paginationMeta";
-import type { OffsetWindow } from "@shoppy/pagination/types/offsetWindow";
+import type { PageBounds } from "@commerce-atoms/pagination/types/pageBounds";
+import type { PaginationMeta } from "@commerce-atoms/pagination/types/paginationMeta";
+import type { OffsetWindow } from "@commerce-atoms/pagination/types/offsetWindow";
 ```

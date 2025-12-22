@@ -1,4 +1,4 @@
-# @shoppy/variants
+# @commerce-atoms/variants
 
 **Pure variant selection logic for Shopify products.**
 
@@ -28,7 +28,7 @@ This package explicitly does **NOT**:
 
 ```typescript
 // Find a variant from selected options
-import {findVariant} from '@shoppy/variants/findVariant';
+import {findVariant} from '@commerce-atoms/variants/findVariant';
 
 const result = findVariant(product, [
   {name: 'Color', value: 'Red'},
@@ -44,7 +44,7 @@ if (result.found) {
 
 ```typescript
 // Pick a default variant with policy
-import {pickDefaultVariant} from '@shoppy/variants/pickDefaultVariant';
+import {pickDefaultVariant} from '@commerce-atoms/variants/pickDefaultVariant';
 
 const variant = pickDefaultVariant(product, 'first-available');
 // Policies: 'first-available' | 'cheapest-available' | 'first' | 'cheapest'
@@ -52,7 +52,7 @@ const variant = pickDefaultVariant(product, 'first-available');
 
 ```typescript
 // Get availability map for partial selection
-import {getAvailabilityMap} from '@shoppy/variants/getAvailabilityMap';
+import {getAvailabilityMap} from '@commerce-atoms/variants/getAvailabilityMap';
 
 const availabilityMap = getAvailabilityMap(product, [
   {name: 'Color', value: 'Red'},
@@ -70,7 +70,7 @@ const isLargeAvailable = availableSizes?.has('Large');
 
 ```typescript
 // Parse selected options from URL
-import {getSelectedOptionsFromUrl} from '@shoppy/variants/getSelectedOptionsFromUrl';
+import {getSelectedOptionsFromUrl} from '@commerce-atoms/variants/getSelectedOptionsFromUrl';
 
 // Recommended: pass optionKeys for stability (option names are merchant-editable)
 const options = getSelectedOptionsFromUrl(
@@ -82,7 +82,7 @@ const options = getSelectedOptionsFromUrl(
 
 ```typescript
 // Serialize selected options to URL params
-import {selectedOptionsToUrlParams} from '@shoppy/variants/selectedOptionsToUrlParams';
+import {selectedOptionsToUrlParams} from '@commerce-atoms/variants/selectedOptionsToUrlParams';
 
 const params = selectedOptionsToUrlParams([
   {name: 'Color', value: 'Red'},
@@ -95,7 +95,7 @@ const params = selectedOptionsToUrlParams([
 
 ```typescript
 // Normalize selected options (trim, case, sort)
-import {normalizeSelectedOptions} from '@shoppy/variants/normalizeSelectedOptions';
+import {normalizeSelectedOptions} from '@commerce-atoms/variants/normalizeSelectedOptions';
 
 const normalized = normalizeSelectedOptions(options, {
   casing: 'lowercase',
@@ -106,7 +106,7 @@ const normalized = normalizeSelectedOptions(options, {
 
 ```typescript
 // Validate a selection
-import {isSelectionValid} from '@shoppy/variants/isSelectionValid';
+import {isSelectionValid} from '@commerce-atoms/variants/isSelectionValid';
 
 const isValid = isSelectionValid(product, selectedOptions);
 ```

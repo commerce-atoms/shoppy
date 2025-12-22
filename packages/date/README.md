@@ -1,4 +1,4 @@
-# @shoppy/date
+# @commerce-atoms/date
 
 **Commerce-safe date helpers for Shopify storefronts.**
 
@@ -26,19 +26,19 @@ This package explicitly does **NOT**:
 
 ```typescript
 // Get countdown string for display
-import { getCountdownString } from "@shoppy/date/countdown/getCountdownString";
+import { getCountdownString } from "@commerce-atoms/date/countdown/getCountdownString";
 
 const countdown = getCountdownString(new Date("2025-12-25"));
 // Returns: "2d 3h left" or "Expired"
 
 // Get time difference breakdown
-import { getTimeUntil } from "@shoppy/date/diff/getTimeUntil";
+import { getTimeUntil } from "@commerce-atoms/date/diff/getTimeUntil";
 
 const time = getTimeUntil(new Date("2025-12-25"));
 // Returns: {days: 2, hours: 3, minutes: 45, seconds: 30}
 
 // Check if date has expired
-import { isDateExpired } from "@shoppy/date/expire/isDateExpired";
+import { isDateExpired } from "@commerce-atoms/date/expire/isDateExpired";
 
 const expired = isDateExpired(new Date("2025-12-25"));
 // Returns: boolean
@@ -47,5 +47,5 @@ const expired = isDateExpired(new Date("2025-12-25"));
 ## Types
 
 ```typescript
-import type { TimeDifference } from "@shoppy/date/types/timeDifference";
+import type { TimeDifference } from "@commerce-atoms/date/types/timeDifference";
 ```
