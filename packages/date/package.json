@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/date",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Commerce-safe date helpers for Shopify storefronts",
   "type": "module",
   "sideEffects": false,

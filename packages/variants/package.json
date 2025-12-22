@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/variants",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pure variant selection logic for Shopify products",
   "type": "module",
   "sideEffects": false,

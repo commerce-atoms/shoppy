@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/seo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pure SEO meta and JSON-LD builder",
   "type": "module",
   "sideEffects": false,

@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/filters",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pure in-memory product filtering for Shopify storefronts",
   "type": "module",
   "sideEffects": false,
