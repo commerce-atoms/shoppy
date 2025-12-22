@@ -148,3 +148,5 @@ interface VariantLike {
 ## Delete-ability
 
 Removing this package = replacing imports. That's it.
+
+<!-- Test OIDC -->
