@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/metafield",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pure metafield and metaobject extraction/parsing",
   "type": "module",
   "sideEffects": false,
