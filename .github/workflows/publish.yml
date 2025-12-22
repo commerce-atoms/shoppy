@@ -1,0 +1,59 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "@commerce-atoms/*@*"
+
+jobs:
+  publish:
+    name: Publish package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Extract package from tag
+        id: extract
+        run: |
+          # Tag format: @commerce-atoms/variants@1.0.0 -> package=variants, version=1.0.0
+          TAG="${GITHUB_REF#refs/tags/}"
+          PACKAGE=$(echo "$TAG" | sed 's/@commerce-atoms\/\([^@]*\)@.*/\1/')
+          VERSION=$(echo "$TAG" | sed 's/@commerce-atoms\/[^@]*@//')
+          echo "package=$PACKAGE" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "📦 Publishing: @commerce-atoms/$PACKAGE@$VERSION"
+
+      - name: Verify package version matches tag
+        run: |
+          PACKAGE="${{ steps.extract.outputs.package }}"
+          VERSION="${{ steps.extract.outputs.version }}"
+          PKG_VERSION=$(node -p "require('./packages/$PACKAGE/package.json').version")
+          if [ "$PKG_VERSION" != "$VERSION" ]; then
+            echo "❌ Version mismatch: package.json=$PKG_VERSION, tag=$VERSION"
+            exit 1
+          fi
+          echo "✅ Version matches: $VERSION"
+
+      - name: Publish package
+        run: |
+          cd packages/${{ steps.extract.outputs.package }}
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
