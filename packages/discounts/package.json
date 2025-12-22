@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/discounts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pure promotion logic engine for Shopify storefronts",
   "type": "module",
   "sideEffects": false,

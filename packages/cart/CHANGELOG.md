@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.3
+
+### Patch Changes
+
+- 25af142: Test OIDC publishing for all packages
+
 ## 0.0.2
 
 ### Patch Changes

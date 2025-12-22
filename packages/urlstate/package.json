@@ -1,6 +1,6 @@
 {
   "name": "@commerce-atoms/urlstate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Schema-driven URL state management for filters, sort, and pagination",
   "type": "module",
   "sideEffects": false,
