@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1
+
+### Changed
+
+- **Type compatibility**: Updated `MetafieldOwnerLike.metafields` and `MetaobjectLike.fields` to use `ReadonlyArray` instead of `Array` for better compatibility with Shopify codegen output.
+- **Stricter typing**: Made `MetaobjectFieldLike.key` non-optional for better type safety.
+- **Media helper types**: Added `MetaobjectReferenceFieldLike` and `MetaobjectReferencesFieldLike` types exported from `./types/metaobject` for proper typing of aliased field selections.
+- **Media helpers**: Updated `getMetaobjectMediaImage` and `getMetaobjectMediaImageList` to use the new types and properly handle `ReadonlyArray` with null-safe iteration.
+
 ## 0.4.0
 
 ### Minor Changes

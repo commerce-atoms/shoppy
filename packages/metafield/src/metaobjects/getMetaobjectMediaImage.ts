@@ -1,3 +1,5 @@
+import type { MetaobjectReferenceFieldLike } from "../types/metaobject.js";
+
 /**
  * Extracts a media image from a metaobject reference field.
  *
@@ -10,7 +12,7 @@
  *
  * **Return contract:** Never returns `undefined`. Missing images return `null`.
  *
- * @param field - The metaobject field with optional reference.image structure
+ * @param field - The metaobject reference field object
  * @returns Image object with url, altText, width, height, or null if missing (never undefined)
  *
  * @example
@@ -24,18 +26,7 @@
  * );
  * ```
  */
-export function getMetaobjectMediaImage(
-  field?: {
-    reference?: {
-      image?: {
-        url?: string | null;
-        altText?: string | null;
-        width?: number | null;
-        height?: number | null;
-      } | null;
-    } | null;
-  } | null,
-): {
+export function getMetaobjectMediaImage(field: MetaobjectReferenceFieldLike): {
   url: string;
   altText: string | null;
   width: number | null;
@@ -46,7 +37,7 @@ export function getMetaobjectMediaImage(
   }
 
   const url = field.reference.image.url.trim();
-  if (url === '') {
+  if (url === "") {
     return null;
   }
 
@@ -57,4 +48,3 @@ export function getMetaobjectMediaImage(
     height: field.reference.image.height ?? null,
   };
 }
-

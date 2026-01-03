@@ -5,7 +5,7 @@ export interface MetaobjectFieldLike {
   /**
    * Field key.
    */
-  key?: string | null;
+  key: string;
 
   /**
    * Field value as string.
@@ -26,5 +26,43 @@ export interface MetaobjectLike {
   /**
    * Array of fields on this metaobject.
    */
-  fields?: Array<MetaobjectFieldLike | null> | null;
+  fields?: ReadonlyArray<MetaobjectFieldLike | null> | null;
 }
+
+/**
+ * Reference field object shape for media image extraction.
+ * Used for aliased field selections (e.g., `metaobject.heroImageField`).
+ */
+export type MetaobjectReferenceFieldLike =
+  | {
+      reference?: {
+        image?: {
+          url: string;
+          altText?: string | null;
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+    }
+  | null
+  | undefined;
+
+/**
+ * References field object shape for media image list extraction.
+ * Used for aliased field selections (e.g., `metaobject.galleryField`).
+ */
+export type MetaobjectReferencesFieldLike =
+  | {
+      references?: {
+        nodes?: ReadonlyArray<{
+          image?: {
+            url: string;
+            altText?: string | null;
+            width?: number | null;
+            height?: number | null;
+          } | null;
+        } | null> | null;
+      } | null;
+    }
+  | null
+  | undefined;
