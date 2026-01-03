@@ -1,16 +1,27 @@
 /**
  * Extracts an array of media images from a metaobject references field.
  *
+ * **Pattern:** Requires explicit field selection. Pass the field directly
+ * (e.g., `metaobject.galleryField`), not the metaobject itself.
+ * This avoids scanning fields and provides better type safety.
+ *
  * Handles the common pattern where a metaobject field contains references
  * to multiple file/image resources with image properties.
  *
+ * **Return contract:** Never returns `undefined`. Missing images return `[]`.
+ *
  * @param field - The metaobject field with optional references.nodes structure
- * @returns Array of image objects with url, altText, width, height
+ * @returns Array of image objects with url, altText, width, height (never undefined, returns [] for missing)
  *
  * @example
  * ```ts
- * const gallery = getMetaobjectMediaImageList(galleryField);
- * // Returns: Array<{url: string, altText: string | null, width: number | null, height: number | null}>
+ * // ✅ Correct: Pass field directly from aliased query selection
+ * const gallery = getMetaobjectMediaImageList(metaobject.galleryField);
+ *
+ * // ❌ Wrong: Scanning fields won't contain references unless you query references on every field
+ * const gallery = getMetaobjectMediaImageList(
+ *   getMetaobjectField(metaobject, 'gallery') as any
+ * );
  * ```
  */
 export function getMetaobjectMediaImageList(
