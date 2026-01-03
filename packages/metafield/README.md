@@ -54,9 +54,9 @@ if (result.ok) {
 - `'string'` (default): Returns value as-is, trimmed
 - `'json'`: Parses JSON, returns parsed object or undefined
 - `'number'`: Parses number, returns number or undefined
-- `'boolean'`: Parses "true"/"false" (case-insensitive), returns boolean or undefined
+- `'boolean'`: Parses 'true'/'false' (case-insensitive), returns boolean or undefined
 
-**Note:** Metafield helpers may return `undefined` in non-strict mode; metaobject helpers never return `undefined` (use `null` / `[]`). This split is intentional: metafield helpers are often used "optionally", while metaobject helpers provide deterministic outputs for domain mappers.
+**Note:** Metafield helpers may return `undefined` in non-strict mode; metaobject helpers never return `undefined` (use `null` / `[]`). This split is intentional: metafield helpers are often used 'optionally', while metaobject helpers provide deterministic outputs for domain mappers.
 
 ### getMetaobjectReferenceFromMetafield
 
