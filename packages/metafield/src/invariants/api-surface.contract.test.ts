@@ -11,35 +11,39 @@
  * `npm run build`. The CI workflow runs `npm run verify` which includes build.
  */
 
-import {readFileSync, existsSync} from 'node:fs';
-import {fileURLToPath} from 'node:url';
-import {dirname, join} from 'node:path';
+import { readFileSync, existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const packageJsonPath = join(__dirname, '../../package.json');
+const packageJsonPath = join(__dirname, "../../package.json");
 
-describe('API Surface', () => {
-  it('should have all required exports with valid paths', () => {
-    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8')) as {
-      exports: Record<string, {import?: string; types?: string}>;
+describe("API Surface", () => {
+  it("should have all required exports with valid paths", () => {
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf-8")) as {
+      exports: Record<string, { import?: string; types?: string }>;
     };
 
     const exports = packageJson.exports;
     const exportKeys = Object.keys(exports).filter(
-      (key) => key !== './package.json',
+      (key) => key !== "./package.json"
     );
 
     // Required exports that must exist
     const requiredExports = [
-      './metafields/getMetafield',
-      './metafields/getMetafieldValue',
-      './metaobjects/getMetaobjectReferenceFromMetafield',
-      './metaobjects/getMetaobjectField',
-      './parse/parseMetafieldValue',
-      './types/metafield',
-      './types/metaobject',
-      './types/parse',
+      "./metafields/getMetafield",
+      "./metafields/getMetafieldValue",
+      "./metaobjects/getMetaobjectReferenceFromMetafield",
+      "./metaobjects/getMetaobjectField",
+      "./metaobjects/getMetaobjectString",
+      "./metaobjects/getMetaobjectStringList",
+      "./metaobjects/getMetaobjectMediaImage",
+      "./metaobjects/getMetaobjectMediaImageList",
+      "./parse/parseMetafieldValue",
+      "./types/metafield",
+      "./types/metaobject",
+      "./types/parse",
     ];
 
     for (const required of requiredExports) {
@@ -48,11 +52,11 @@ describe('API Surface', () => {
       // Validate export paths resolve to actual files
       const exportConfig = exports[required];
       if (exportConfig?.import) {
-        const importPath = join(__dirname, '../../', exportConfig.import);
+        const importPath = join(__dirname, "../../", exportConfig.import);
         expect(existsSync(importPath)).toBe(true);
       }
       if (exportConfig?.types) {
-        const typesPath = join(__dirname, '../../', exportConfig.types);
+        const typesPath = join(__dirname, "../../", exportConfig.types);
         expect(existsSync(typesPath)).toBe(true);
       }
     }
