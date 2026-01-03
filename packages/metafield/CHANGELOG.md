@@ -2,6 +2,17 @@
 
 ## 0.4.1
 
+### Patch Changes
+
+- 4fe000e: ### Changed
+
+  - Updated types to use `ReadonlyArray` for better compatibility with Shopify codegen output
+  - Made `MetaobjectFieldLike.key` non-optional for stricter typing
+  - Added `MetaobjectReferenceFieldLike` and `MetaobjectReferencesFieldLike` types for media helpers
+  - Updated media helpers to properly handle `ReadonlyArray` with null-safe iteration
+
+## 0.4.1
+
 ### Changed
 
 - **Type compatibility**: Updated `MetafieldOwnerLike.metafields` and `MetaobjectLike.fields` to use `ReadonlyArray` instead of `Array` for better compatibility with Shopify codegen output.
