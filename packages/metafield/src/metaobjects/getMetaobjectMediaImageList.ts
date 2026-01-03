@@ -1,3 +1,5 @@
+import type { MetaobjectReferencesFieldLike } from "../types/metaobject.js";
+
 /**
  * Extracts an array of media images from a metaobject references field.
  *
@@ -10,7 +12,7 @@
  *
  * **Return contract:** Never returns `undefined`. Missing images return `[]`.
  *
- * @param field - The metaobject field with optional references.nodes structure
+ * @param field - The metaobject references field object
  * @returns Array of image objects with url, altText, width, height (never undefined, returns [] for missing)
  *
  * @example
@@ -25,27 +27,14 @@
  * ```
  */
 export function getMetaobjectMediaImageList(
-  field?: {
-    references?: {
-      nodes?: Array<{
-        image?: {
-          url?: string | null;
-          altText?: string | null;
-          width?: number | null;
-          height?: number | null;
-        } | null;
-      } | null> | null;
-    } | null;
-  } | null,
+  field: MetaobjectReferencesFieldLike
 ): Array<{
   url: string;
   altText: string | null;
   width: number | null;
   height: number | null;
 }> {
-  if (!field?.references?.nodes) {
-    return [];
-  }
+  const nodes = field?.references?.nodes ?? [];
 
   const images: Array<{
     url: string;
@@ -54,13 +43,13 @@ export function getMetaobjectMediaImageList(
     height: number | null;
   }> = [];
 
-  for (const node of field.references.nodes) {
+  for (const node of nodes) {
     if (!node?.image?.url) {
       continue;
     }
 
     const url = node.image.url.trim();
-    if (url === '') {
+    if (url === "") {
       continue;
     }
 
@@ -74,4 +63,3 @@ export function getMetaobjectMediaImageList(
 
   return images;
 }
-

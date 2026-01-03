@@ -36,5 +36,5 @@ export interface MetafieldOwnerLike {
   /**
    * Array of metafields on this object.
    */
-  metafields?: Array<MetafieldLike | null> | null;
+  metafields?: ReadonlyArray<MetafieldLike | null> | null;
 }
