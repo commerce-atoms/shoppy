@@ -50,6 +50,22 @@
       "types": "./dist/metaobjects/getMetaobjectField.d.ts",
       "import": "./dist/metaobjects/getMetaobjectField.js"
     },
+    "./metaobjects/getMetaobjectString": {
+      "types": "./dist/metaobjects/getMetaobjectString.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectString.js"
+    },
+    "./metaobjects/getMetaobjectStringList": {
+      "types": "./dist/metaobjects/getMetaobjectStringList.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectStringList.js"
+    },
+    "./metaobjects/getMetaobjectMediaImage": {
+      "types": "./dist/metaobjects/getMetaobjectMediaImage.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectMediaImage.js"
+    },
+    "./metaobjects/getMetaobjectMediaImageList": {
+      "types": "./dist/metaobjects/getMetaobjectMediaImageList.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectMediaImageList.js"
+    },
     "./parse/parseMetafieldValue": {
       "types": "./dist/parse/parseMetafieldValue.d.ts",
       "import": "./dist/parse/parseMetafieldValue.js"
