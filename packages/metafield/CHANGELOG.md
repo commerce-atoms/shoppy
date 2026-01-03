@@ -16,6 +16,12 @@
 - **Documentation**: Removed all Shopify/GraphQL-specific language and examples. Documentation is now framework-agnostic and focuses on structural typing patterns.
 - **API surface contract test**: Updated to include all four metaobject helper functions (`getMetaobjectString`, `getMetaobjectStringList`, `getMetaobjectMediaImage`, `getMetaobjectMediaImageList`).
 
+## 0.2.0
+
+### Minor Changes
+
+- 7e766c1: Add metaobject value coercion helpers: `getMetaobjectString`, `getMetaobjectStringList`, `getMetaobjectMediaImage`, and `getMetaobjectMediaImageList`. These helpers eliminate repetitive value extraction logic across modules by providing generic coercion functions for strings, string arrays, and media images from metaobject fields.
+
 ## 0.1.0
 
 ### Minor Changes
