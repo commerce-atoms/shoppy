@@ -57,7 +57,7 @@ npm run verify
    }
    ```
 3. Add `tsup.config.ts` with entry points
-4. Add `tsconfig.json` that extends `../tsconfig.base.json`
+4. Add `tsconfig.json` that extends `./tsconfig.base.json`
 5. Create `src/` directory with code
 6. Add `README.md`
 

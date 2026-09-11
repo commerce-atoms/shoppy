@@ -13,15 +13,15 @@ Designed to work seamlessly with Shopify Hydrogen, but **framework-agnostic by d
 
 ## 🎯 What This Is
 
-Shoppy is a collection of **small, single-purpose packages** that solve specific commerce problems — the kind of logic every storefront needs but no framework standardizes.
+Shoppy is a collection of **small, single-purpose packages** that solve specific commerce problems. The kind of logic every storefront needs but no framework standardizes.
 
 ### ✅ What Shoppy is:
 
-- 🧩 **Pure business logic functions** — No UI, no framework coupling
-- 📦 **Structural types** — Portable across frameworks
-- 🎯 **Explicit imports** — No barrel files, tree-shakable
-- 🗑️ **Delete-able** — Remove without rewriting your architecture
-- 🔒 **TypeScript-first** — Strict types, zero runtime deps
+- 🧩 **Pure business logic functions**. No UI, no framework coupling
+- 📦 **Structural types**. Portable across frameworks
+- 🎯 **Explicit imports**. No barrel files, tree-shakable
+- 🗑️ **Delete-able**. Remove without rewriting your architecture
+- 🔒 **TypeScript-first**. Strict types, zero runtime deps
 
 ### ❌ What Shoppy is NOT:
 
@@ -137,7 +137,7 @@ Packages are published automatically on merge to `main`.
 
 ## 📝 License
 
-[MIT](LICENSE) — Free to use, modify, and distribute.
+[MIT](LICENSE). Free to use, modify, and distribute.
 
 ---
 

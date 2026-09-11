@@ -73,13 +73,13 @@ const result = formatCompare(
 
 ## Fallback Behavior
 
-All functions return `'—'` (em dash) for invalid inputs:
+All functions return `', '` (em dash) for invalid inputs:
 
 - Null/undefined money objects
 - Invalid amount values (NaN)
 - Currency mismatches (for range/compare)
 
-**Note:** `formatRange` uses an en dash (`–`) between min and max prices, not a hyphen. This follows typographic conventions for ranges.
+**Note:** `formatRange` uses an en dash (`-`) between min and max prices, not a hyphen. This follows typographic conventions for ranges.
 
 ## Type Philosophy
 

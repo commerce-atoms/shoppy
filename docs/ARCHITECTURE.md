@@ -2,7 +2,7 @@
 
 ## Overview
 
-Shoppy is a **monorepo of independent, single-purpose npm packages** for commerce logic. Framework-agnostic by design — works with Hydrogen, Next.js, Remix, or any modern stack.
+Shoppy is a **monorepo of independent, single-purpose npm packages** for commerce logic. Framework-agnostic by design. Works with Hydrogen, Next.js, Remix, or any modern stack.
 
 ## Structure
 
@@ -96,7 +96,7 @@ Shoppy grows **only when** a utility:
 
 ## Versioning Strategy
 
-**Independent per package** – do not synchronize versions:
+**Independent per package** - do not synchronize versions:
 
 ```
 @commerce-atoms/urlstate:    1.2.3    (many updates)
