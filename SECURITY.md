@@ -4,9 +4,9 @@
 
 We provide security updates for the following versions:
 
-| Version        | Supported          |
+| Version | Supported |
 | -------------- | ------------------ |
-| Latest release | :white_check_mark: |
+| Latest release |:white_check_mark: |
 
 **Current Status**: Packages are in development (0.x versions). Security updates are provided for the latest published version. Once packages reach 1.0.0, we will follow semantic versioning with support for the latest minor release within each major version.
 

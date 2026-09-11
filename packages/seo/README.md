@@ -41,8 +41,8 @@ const meta = buildProductMeta(product, {
 });
 ```
 
-**Title priority:** `product.seo.title` → `product.title` → `'Product'`  
-**Description priority:** `product.seo.description` → `product.description` → stripped `descriptionHtml`  
+**Title priority:** `product.seo.title` → `product.title` → `'Product'`
+**Description priority:** `product.seo.description` → `product.description` → stripped `descriptionHtml`
 **Image priority:** `product.featuredImage` → first `product.images.nodes`
 
 ### buildCollectionMeta

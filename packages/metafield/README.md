@@ -218,12 +218,12 @@ This pattern:
 
 All metaobject helpers follow strict return contracts:
 
-| Helper                        | Return Type                    | Missing/Empty Behavior             |
+| Helper | Return Type | Missing/Empty Behavior |
 | ----------------------------- | ------------------------------ | ---------------------------------- |
-| `getMetaobjectString`         | `string \| null`               | Returns `null` (never `undefined`) |
-| `getMetaobjectStringList`     | `string[]`                     | Returns `[]` (never `undefined`)   |
-| `getMetaobjectMediaImage`     | `MetaobjectMediaImage \| null` | Returns `null` (never `undefined`) |
-| `getMetaobjectMediaImageList` | `MetaobjectMediaImage[]`       | Returns `[]` (never `undefined`)   |
+| `getMetaobjectString` | `string \| null` | Returns `null` (never `undefined`) |
+| `getMetaobjectStringList` | `string[]` | Returns `[]` (never `undefined`) |
+| `getMetaobjectMediaImage` | `MetaobjectMediaImage \| null` | Returns `null` (never `undefined`) |
+| `getMetaobjectMediaImageList` | `MetaobjectMediaImage[]` | Returns `[]` (never `undefined`) |
 
 Where `MetaobjectMediaImage` is:
 
