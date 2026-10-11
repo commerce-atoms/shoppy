@@ -63,6 +63,10 @@
       "types": "./dist/jsonld/buildOrganizationJsonLd.d.ts",
       "import": "./dist/jsonld/buildOrganizationJsonLd.js"
     },
+    "./jsonld/buildVideoJsonLd": {
+      "types": "./dist/jsonld/buildVideoJsonLd.d.ts",
+      "import": "./dist/jsonld/buildVideoJsonLd.js"
+    },
     "./normalize/stripHtml": {
       "types": "./dist/normalize/stripHtml.d.ts",
       "import": "./dist/normalize/stripHtml.js"
@@ -94,6 +98,10 @@
     "./types/organization": {
       "types": "./dist/types/organization.d.ts",
       "import": "./dist/types/organization.js"
+    },
+    "./types/video": {
+      "types": "./dist/types/video.d.ts",
+      "import": "./dist/types/video.js"
     }
   },
   "dependencies": {},

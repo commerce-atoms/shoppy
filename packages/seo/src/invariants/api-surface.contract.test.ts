@@ -30,6 +30,7 @@ describe('API Surface', () => {
       './jsonld/buildProductJsonLd',
       './jsonld/buildCollectionJsonLd',
       './jsonld/buildOrganizationJsonLd',
+      './jsonld/buildVideoJsonLd',
       './normalize/stripHtml',
       './normalize/normalizeText',
       './normalize/pickSeoImage',
@@ -38,6 +39,7 @@ describe('API Surface', () => {
       './types/product',
       './types/collection',
       './types/organization',
+      './types/video',
     ];
 
     for (const required of requiredExports) {
