@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- 669a797: Add `buildTitle` (joins title segments and appends the site name) and the `TitleOptions` type.
+
 ## 0.2.0
 
 ### Minor Changes
