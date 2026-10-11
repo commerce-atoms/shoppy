@@ -48,6 +48,29 @@ export type MetaobjectReferenceFieldLike =
   | undefined;
 
 /**
+ * Reference field object shape for video extraction.
+ * Used for aliased field selections (e.g., `metaobject.clipField`)
+ * whose reference is a Shopify `Video`.
+ */
+export type MetaobjectVideoReferenceFieldLike =
+  | {
+      reference?: {
+        sources?: ReadonlyArray<{
+          url?: string | null;
+          mimeType?: string | null;
+        } | null> | null;
+        previewImage?: {
+          url?: string | null;
+          altText?: string | null;
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+    }
+  | null
+  | undefined;
+
+/**
  * References field object shape for media image list extraction.
  * Used for aliased field selections (e.g., `metaobject.galleryField`).
  */

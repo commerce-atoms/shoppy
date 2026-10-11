@@ -40,6 +40,7 @@ describe("API Surface", () => {
       "./metaobjects/getMetaobjectStringList",
       "./metaobjects/getMetaobjectMediaImage",
       "./metaobjects/getMetaobjectMediaImageList",
+      "./metaobjects/getMetaobjectVideo",
       "./parse/parseMetafieldValue",
       "./types/metafield",
       "./types/metaobject",

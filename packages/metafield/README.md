@@ -151,6 +151,19 @@ type MetaobjectMediaImage = {
 
 **Return contract:** Missing images return `null`, never `undefined`.
 
+### getMetaobjectVideo
+
+Extracts a Shopify `Video` from a metaobject reference field object (e.g. a `file_reference` field limited to videos). Pass the reference field object directly; select `sources { url mimeType }` and `previewImage { url altText width height }` on `... on Video`.
+
+```typescript
+import { getMetaobjectVideo } from "@commerce-atoms/metafield/metaobjects/getMetaobjectVideo";
+
+const clip = getMetaobjectVideo(metaobject.clipField);
+// Returns: { sources: { url, mimeType }[], previewImage } | null
+```
+
+**Return contract:** Missing videos, or videos without a usable source, return `null`, never `undefined`. Source order is preserved.
+
 ### getMetaobjectMediaImageList
 
 Extracts an array of media images from a metaobject references field object. This helper does **not** scan `metaobject.fields[]`. Pass the references field object directly.
@@ -224,6 +237,7 @@ All metaobject helpers follow strict return contracts:
 | `getMetaobjectStringList` | `string[]` | Returns `[]` (never `undefined`) |
 | `getMetaobjectMediaImage` | `MetaobjectMediaImage \| null` | Returns `null` (never `undefined`) |
 | `getMetaobjectMediaImageList` | `MetaobjectMediaImage[]` | Returns `[]` (never `undefined`) |
+| `getMetaobjectVideo` | `MetaobjectVideo \| null` | Returns `null` (never `undefined`) |
 
 Where `MetaobjectMediaImage` is:
 

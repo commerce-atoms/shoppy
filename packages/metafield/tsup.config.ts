@@ -14,6 +14,7 @@ export default defineConfig({
       "src/metaobjects/getMetaobjectMediaImage.ts",
     "metaobjects/getMetaobjectMediaImageList":
       "src/metaobjects/getMetaobjectMediaImageList.ts",
+    "metaobjects/getMetaobjectVideo": "src/metaobjects/getMetaobjectVideo.ts",
     "parse/parseMetafieldValue": "src/parse/parseMetafieldValue.ts",
     "types/metafield": "src/types/metafield.ts",
     "types/metaobject": "src/types/metaobject.ts",

@@ -6,6 +6,7 @@ import { getMetaobjectString } from "../metaobjects/getMetaobjectString.js";
 import { getMetaobjectStringList } from "../metaobjects/getMetaobjectStringList.js";
 import { getMetaobjectMediaImage } from "../metaobjects/getMetaobjectMediaImage.js";
 import { getMetaobjectMediaImageList } from "../metaobjects/getMetaobjectMediaImageList.js";
+import { getMetaobjectVideo } from "../metaobjects/getMetaobjectVideo.js";
 import type { MetaobjectLike } from "../types/metaobject.js";
 
 describe("Return Contract: Never Undefined", () => {
@@ -106,6 +107,16 @@ describe("Return Contract: Never Undefined", () => {
       expect(result).not.toBeUndefined();
       expect(result).not.toBeNull();
       expect(typeof result).toBe("object");
+    });
+  });
+
+  describe("getMetaobjectVideo", () => {
+    it("returns null, never undefined, when field is missing", () => {
+      for (const field of [undefined, null, {}]) {
+        const result = getMetaobjectVideo(field);
+        expect(result).not.toBeUndefined();
+        expect(result).toBeNull();
+      }
     });
   });
 
