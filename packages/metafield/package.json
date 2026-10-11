@@ -66,6 +66,10 @@
       "types": "./dist/metaobjects/getMetaobjectMediaImageList.d.ts",
       "import": "./dist/metaobjects/getMetaobjectMediaImageList.js"
     },
+    "./metaobjects/getMetaobjectVideo": {
+      "types": "./dist/metaobjects/getMetaobjectVideo.d.ts",
+      "import": "./dist/metaobjects/getMetaobjectVideo.js"
+    },
     "./parse/parseMetafieldValue": {
       "types": "./dist/parse/parseMetafieldValue.d.ts",
       "import": "./dist/parse/parseMetafieldValue.js"
