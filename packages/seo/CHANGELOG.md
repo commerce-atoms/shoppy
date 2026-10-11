@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0
+
+### Minor Changes
+
+- c887b58: Add `withMetaDefaults` (fills OpenGraph / Twitter from page fields and a site-wide default image) and `buildOrganizationJsonLd` (Organization schema with `sameAs` social profiles).
+
 ## 0.0.3
 
 ### Patch Changes
