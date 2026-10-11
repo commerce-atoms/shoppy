@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- 01cfc7a: Add `buildVideoJsonLd` (VideoObject schema) and the `VideoJsonLdInput` type.
+
 ## 0.1.0
 
 ### Minor Changes

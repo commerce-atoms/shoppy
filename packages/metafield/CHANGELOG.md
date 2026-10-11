@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- d6bc670: Add `getMetaobjectVideo` and the `MetaobjectVideoReferenceFieldLike` type for extracting a Shopify `Video` (sources + preview image) from a metaobject reference field.
+
 ## 0.4.1
 
 ### Patch Changes
