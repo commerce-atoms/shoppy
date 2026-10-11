@@ -65,3 +65,18 @@ export interface MetaDefaults {
    */
   image?: { url: string; alt?: string };
 }
+
+/**
+ * Options for `buildTitle`.
+ */
+export interface TitleOptions {
+  /**
+   * Appended as the last segment unless already present there.
+   */
+  siteName?: string | null;
+
+  /**
+   * Placed between segments. Defaults to `' | '`.
+   */
+  separator?: string;
+}

@@ -6,6 +6,7 @@ export default defineConfig({
     'meta/buildProductMeta': 'src/meta/buildProductMeta.ts',
     'meta/buildCollectionMeta': 'src/meta/buildCollectionMeta.ts',
     'meta/withMetaDefaults': 'src/meta/withMetaDefaults.ts',
+    'meta/buildTitle': 'src/meta/buildTitle.ts',
     'jsonld/buildProductJsonLd': 'src/jsonld/buildProductJsonLd.ts',
     'jsonld/buildCollectionJsonLd': 'src/jsonld/buildCollectionJsonLd.ts',
     'jsonld/buildOrganizationJsonLd': 'src/jsonld/buildOrganizationJsonLd.ts',

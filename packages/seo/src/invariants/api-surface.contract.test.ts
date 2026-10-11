@@ -27,6 +27,7 @@ describe('API Surface', () => {
       './meta/buildProductMeta',
       './meta/buildCollectionMeta',
       './meta/withMetaDefaults',
+      './meta/buildTitle',
       './jsonld/buildProductJsonLd',
       './jsonld/buildCollectionJsonLd',
       './jsonld/buildOrganizationJsonLd',
