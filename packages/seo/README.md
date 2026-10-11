@@ -82,6 +82,21 @@ const jsonLd = buildOrganizationJsonLd({
 });
 ```
 
+### buildVideoJsonLd
+
+VideoObject schema for a page built around one video. Returns `undefined` unless `name`, `thumbnailUrl` and `uploadDate` are present (required for video rich results).
+
+```typescript
+import {buildVideoJsonLd} from '@commerce-atoms/seo/jsonld/buildVideoJsonLd';
+
+const jsonLd = buildVideoJsonLd({
+  name: 'My Short Film',
+  thumbnailUrl: 'https://example.com/poster.jpg',
+  uploadDate: '2026-03-01',
+  embedUrl: 'https://www.youtube.com/embed/abc123',
+});
+```
+
 ## JSON-LD Generation
 
 - Only generated when sufficient data exists (title not fallback)
