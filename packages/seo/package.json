@@ -47,6 +47,10 @@
       "types": "./dist/meta/buildCollectionMeta.d.ts",
       "import": "./dist/meta/buildCollectionMeta.js"
     },
+    "./meta/withMetaDefaults": {
+      "types": "./dist/meta/withMetaDefaults.d.ts",
+      "import": "./dist/meta/withMetaDefaults.js"
+    },
     "./jsonld/buildProductJsonLd": {
       "types": "./dist/jsonld/buildProductJsonLd.d.ts",
       "import": "./dist/jsonld/buildProductJsonLd.js"
@@ -54,6 +58,10 @@
     "./jsonld/buildCollectionJsonLd": {
       "types": "./dist/jsonld/buildCollectionJsonLd.d.ts",
       "import": "./dist/jsonld/buildCollectionJsonLd.js"
+    },
+    "./jsonld/buildOrganizationJsonLd": {
+      "types": "./dist/jsonld/buildOrganizationJsonLd.d.ts",
+      "import": "./dist/jsonld/buildOrganizationJsonLd.js"
     },
     "./normalize/stripHtml": {
       "types": "./dist/normalize/stripHtml.d.ts",
@@ -82,6 +90,10 @@
     "./types/collection": {
       "types": "./dist/types/collection.d.ts",
       "import": "./dist/types/collection.js"
+    },
+    "./types/organization": {
+      "types": "./dist/types/organization.d.ts",
+      "import": "./dist/types/organization.js"
     }
   },
   "dependencies": {},

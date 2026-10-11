@@ -55,3 +55,13 @@ export interface MetaOutput {
    */
   jsonLd?: JsonLdValue;
 }
+
+/**
+ * Site-wide fallbacks applied by `withMetaDefaults`.
+ */
+export interface MetaDefaults {
+  /**
+   * Social share image used when the page has none (absolute URL).
+   */
+  image?: { url: string; alt?: string };
+}
