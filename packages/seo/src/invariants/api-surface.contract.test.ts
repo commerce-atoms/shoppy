@@ -26,8 +26,10 @@ describe('API Surface', () => {
       './meta/buildPageMeta',
       './meta/buildProductMeta',
       './meta/buildCollectionMeta',
+      './meta/withMetaDefaults',
       './jsonld/buildProductJsonLd',
       './jsonld/buildCollectionJsonLd',
+      './jsonld/buildOrganizationJsonLd',
       './normalize/stripHtml',
       './normalize/normalizeText',
       './normalize/pickSeoImage',
@@ -35,6 +37,7 @@ describe('API Surface', () => {
       './types/page',
       './types/product',
       './types/collection',
+      './types/organization',
     ];
 
     for (const required of requiredExports) {

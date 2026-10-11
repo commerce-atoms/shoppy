@@ -55,6 +55,33 @@ const meta = buildCollectionMeta(collection, {
 });
 ```
 
+### withMetaDefaults
+
+Completes `openGraph` and `twitter` for any builder output. Text falls back to the page's own title / description / canonical URL; the image falls back to a site-wide default. Existing values are never overwritten.
+
+```typescript
+import {withMetaDefaults} from '@commerce-atoms/seo/meta/withMetaDefaults';
+
+const meta = withMetaDefaults(buildPageMeta({title: 'About'}), {
+  image: {url: 'https://example.com/og-default.jpg', alt: 'My Brand'},
+});
+```
+
+### buildOrganizationJsonLd
+
+Organization schema for the brand, typically emitted on the homepage. `sameAs` links social profiles; empty values are dropped and duplicates removed.
+
+```typescript
+import {buildOrganizationJsonLd} from '@commerce-atoms/seo/jsonld/buildOrganizationJsonLd';
+
+const jsonLd = buildOrganizationJsonLd({
+  name: 'My Brand',
+  url: 'https://example.com',
+  logo: 'https://example.com/logo.png',
+  sameAs: ['https://www.instagram.com/mybrand', 'https://x.com/mybrand'],
+});
+```
+
 ## JSON-LD Generation
 
 - Only generated when sufficient data exists (title not fallback)
