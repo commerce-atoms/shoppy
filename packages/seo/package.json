@@ -51,6 +51,10 @@
       "types": "./dist/meta/withMetaDefaults.d.ts",
       "import": "./dist/meta/withMetaDefaults.js"
     },
+    "./meta/buildTitle": {
+      "types": "./dist/meta/buildTitle.d.ts",
+      "import": "./dist/meta/buildTitle.js"
+    },
     "./jsonld/buildProductJsonLd": {
       "types": "./dist/jsonld/buildProductJsonLd.d.ts",
       "import": "./dist/jsonld/buildProductJsonLd.js"

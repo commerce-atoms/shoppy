@@ -67,6 +67,17 @@ const meta = withMetaDefaults(buildPageMeta({title: 'About'}), {
 });
 ```
 
+### buildTitle
+
+Joins title segments, most specific first, and appends the site name. Empty segments and repeats of the previous segment are dropped; the site name is not repeated when it is already last.
+
+```typescript
+import {buildTitle} from '@commerce-atoms/seo/meta/buildTitle';
+
+buildTitle(['Wolf Study 01', 'Dark Red', 'Shop'], {siteName: 'My Brand'});
+// → 'Wolf Study 01 | Dark Red | Shop | My Brand'
+```
+
 ### buildOrganizationJsonLd
 
 Organization schema for the brand, typically emitted on the homepage. `sameAs` links social profiles; empty values are dropped and duplicates removed.
